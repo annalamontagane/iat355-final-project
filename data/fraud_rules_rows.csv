@@ -1,0 +1,16 @@
+id,rule_id,rule_name,what_it_does,category,fn_count_caused,failure_type,financial_impact,last_edited,fix_priority
+1,VD-338,Device Velocity Window,Flags abnormal repeated transactions from same device within short intervals,Device,8402,"Threshold too loose (15 attempts allowed, fraud at 12 attempts)",831900.00,2026-03-13,High
+2,CA-221,CNP Repeat Declines,Blocks CNP transactions after multiple declines,Card-Not-Present,6241,"Outdated logic (based on 2022 patterns, no longer catching burst retries)",886500.00,2025-10-29,High
+3,ND-504,New Device + High-Risk MCC,"Looks for new device fingerprints in risky MCCs (Travel, Electronics)",Device,4907,Attribute mismatch (device fingerprint incomplete for Android 14),672000.00,2025-10-07,High
+4,IP-519,IP / Geo Mismatch,Detects transactions where IP country and cardholder region differ,IP/Geo,1204,Threshold too loose (200-300 km distance still allowed),183700.00,2025-12-10,Medium
+5,VD-338b,Device Velocity Window (v2),Flags abnormal repeated transactions from same device (updated thresholds),Device,9447,"Threshold too loose (10 attempts allowed, fraud at 8)",891900.00,2025-12-02,High
+6,CA-221b,CNP Repeat Declines (v2),Blocks CNP transactions after multiple declines (stricter version),Card-Not-Present,5817,Pattern gap (doesn't catch spaced-out retry patterns),744200.00,2025-11-27,High
+7,ND-504b,New Device + High-Risk MCC (v2),Looks for new device fingerprints in risky MCCs (expanded list),Device,4307,Attribute mismatch (new MCC codes not included),571300.00,2025-11-05,Medium
+8,IP-519b,IP / Geo Mismatch (v2),Detects transactions where IP country and cardholder region (expanded rules),IP/Geo,1095,"Threshold too loose (country-level only, not city-level)",162100.00,2025-10-27,Medium
+9,BN-102,BIN Attack Monitor,Monitors rapid sequential BIN range testing patterns,BIN,3521,Detection window too narrow (5-min window misses slower attacks),445600.00,2026-03-23,Medium
+10,AT-415,Account Takeover Pattern,Detects credential stuffing and account compromise indicators,Account,2890,Credential pattern incomplete (doesn't catch token replay),378900.00,2026-02-17,High
+11,GE-773,Geo-Velocity Check,Flags impossible travel speed between consecutive transactions,Geo-Velocity,1756,Distance calculation outdated (doesn't account for VPN proxies),231500.00,2025-10-23,Low
+12,ML-660,ML Risk Score Override,Overrides when ML model risk score exceeds dynamic threshold,ML-Model,6103,Score threshold static (doesn't adapt to seasonal fraud shifts),789400.00,2026-03-01,High
+13,TP-290,Transaction Pace Limiter,Limits transaction frequency per card within rolling window,Velocity,3200,Window too wide (60-min window allows burst within),412000.00,2026-01-17,Medium
+14,DV-812,Device Fingerprint Anomaly,Identifies spoofed or manipulated device fingerprints,Device,4150,Fingerprint hash collision (similar devices not differentiated),534700.00,2025-10-09,Medium
+15,CR-145,Cross-Border Repeat,Flags repeated cross-border transactions in short succession,Cross-Border,2610,Regional exemption too broad (EU Schengen treated as domestic),341200.00,2025-10-08,Low

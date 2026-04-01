@@ -1,0 +1,721 @@
+id,date,region,total_transactions,missed_fraud_count,false_positive_count,avg_risk_score,top_failure_type
+1,2025-07-01,North America,7874,45,232,45.4,Detection window too narrow
+2,2025-07-01,EMEA,5411,26,305,68.7,Threshold too loose
+3,2025-07-01,APAC,4765,23,243,34.2,Detection window too narrow
+4,2025-07-01,LATAM,1758,5,52,38.4,Threshold too loose
+5,2025-07-02,North America,6512,27,232,37.4,Outdated logic
+6,2025-07-02,EMEA,5103,29,215,46.9,Threshold too loose
+7,2025-07-02,APAC,4103,26,206,59.5,Outdated logic
+8,2025-07-02,LATAM,1905,7,76,49.9,Threshold too loose
+9,2025-07-03,North America,7753,29,374,35.2,Outdated logic
+10,2025-07-03,EMEA,4747,28,234,45.7,Attribute mismatch
+11,2025-07-03,APAC,3955,13,118,58.5,Outdated logic
+12,2025-07-03,LATAM,2061,6,92,41.2,Threshold too loose
+13,2025-07-04,North America,8453,30,443,62.9,Detection window too narrow
+14,2025-07-04,EMEA,5961,21,350,45.2,Attribute mismatch
+15,2025-07-04,APAC,3577,14,102,46.9,Attribute mismatch
+16,2025-07-04,LATAM,1888,6,82,33.7,Outdated logic
+17,2025-07-05,North America,8807,53,516,58.1,Outdated logic
+18,2025-07-05,EMEA,5416,30,249,41.6,Pattern gap
+19,2025-07-05,APAC,3912,26,181,45.7,Attribute mismatch
+20,2025-07-05,LATAM,1851,9,101,59.2,Detection window too narrow
+21,2025-07-06,North America,7660,20,432,42.4,Pattern gap
+22,2025-07-06,EMEA,5041,35,252,25.6,Detection window too narrow
+23,2025-07-06,APAC,4089,16,161,50.2,Attribute mismatch
+24,2025-07-06,LATAM,2139,12,125,46.7,Outdated logic
+25,2025-07-07,North America,9276,38,195,39.6,Threshold too loose
+26,2025-07-07,EMEA,5528,71,134,48.1,Detection window too narrow
+27,2025-07-07,APAC,2849,11,167,39.4,Outdated logic
+28,2025-07-07,LATAM,1812,10,88,38.1,Pattern gap
+29,2025-07-08,North America,9087,50,200,39.7,Threshold too loose
+30,2025-07-08,EMEA,4646,13,127,43.3,Threshold too loose
+31,2025-07-08,APAC,3571,17,173,21.2,Detection window too narrow
+32,2025-07-08,LATAM,2155,9,96,23.8,Detection window too narrow
+33,2025-07-09,North America,9435,61,356,44.2,Pattern gap
+34,2025-07-09,EMEA,6036,26,271,43.9,Threshold too loose
+35,2025-07-09,APAC,3976,29,219,40.5,Outdated logic
+36,2025-07-09,LATAM,2011,25,50,26.9,Pattern gap
+37,2025-07-10,North America,8410,52,208,50.9,Attribute mismatch
+38,2025-07-10,EMEA,3593,23,138,53.4,Pattern gap
+39,2025-07-10,APAC,3959,27,181,43.0,Attribute mismatch
+40,2025-07-10,LATAM,2063,12,87,73.9,Attribute mismatch
+41,2025-07-11,North America,7880,55,442,51.8,Attribute mismatch
+42,2025-07-11,EMEA,4833,20,244,56.8,Attribute mismatch
+43,2025-07-11,APAC,3948,21,226,29.3,Detection window too narrow
+44,2025-07-11,LATAM,2225,14,67,51.4,Outdated logic
+45,2025-07-12,North America,8861,38,374,57.2,Threshold too loose
+46,2025-07-12,EMEA,4938,25,224,34.7,Attribute mismatch
+47,2025-07-12,APAC,4048,21,182,48.6,Attribute mismatch
+48,2025-07-12,LATAM,1632,8,90,59.0,Detection window too narrow
+49,2025-07-13,North America,9306,35,489,34.6,Detection window too narrow
+50,2025-07-13,EMEA,3664,17,146,56.0,Attribute mismatch
+51,2025-07-13,APAC,4318,16,100,56.2,Attribute mismatch
+52,2025-07-13,LATAM,1869,5,77,46.2,Attribute mismatch
+53,2025-07-14,North America,8345,58,266,42.7,Outdated logic
+54,2025-07-14,EMEA,5276,28,187,43.6,Detection window too narrow
+55,2025-07-14,APAC,3816,22,138,48.4,Threshold too loose
+56,2025-07-14,LATAM,2027,5,90,42.0,Threshold too loose
+57,2025-07-15,North America,9252,72,477,51.2,Detection window too narrow
+58,2025-07-15,EMEA,5149,21,209,42.0,Threshold too loose
+59,2025-07-15,APAC,4943,13,101,44.9,Detection window too narrow
+60,2025-07-15,LATAM,1894,14,42,42.8,Threshold too loose
+61,2025-07-16,North America,7671,31,274,44.4,Detection window too narrow
+62,2025-07-16,EMEA,4926,18,98,51.2,Detection window too narrow
+63,2025-07-16,APAC,3909,10,186,34.2,Pattern gap
+64,2025-07-16,LATAM,1979,13,53,43.4,Attribute mismatch
+65,2025-07-17,North America,8077,36,200,39.9,Attribute mismatch
+66,2025-07-17,EMEA,5298,17,231,59.6,Detection window too narrow
+67,2025-07-17,APAC,3718,42,221,55.5,Outdated logic
+68,2025-07-17,LATAM,1964,13,45,40.8,Attribute mismatch
+69,2025-07-18,North America,7591,38,163,58.5,Attribute mismatch
+70,2025-07-18,EMEA,5482,90,325,47.5,Attribute mismatch
+71,2025-07-18,APAC,3618,21,173,54.7,Pattern gap
+72,2025-07-18,LATAM,2057,9,120,36.9,Pattern gap
+73,2025-07-19,North America,8447,48,176,54.2,Outdated logic
+74,2025-07-19,EMEA,4371,21,112,56.0,Outdated logic
+75,2025-07-19,APAC,3868,15,154,52.9,Detection window too narrow
+76,2025-07-19,LATAM,1922,5,79,48.6,Attribute mismatch
+77,2025-07-20,North America,7565,20,298,40.9,Outdated logic
+78,2025-07-20,EMEA,5141,25,292,58.9,Threshold too loose
+79,2025-07-20,APAC,4587,15,138,52.8,Pattern gap
+80,2025-07-20,LATAM,1643,9,81,47.7,Detection window too narrow
+81,2025-07-21,North America,8403,21,187,38.2,Pattern gap
+82,2025-07-21,EMEA,4382,11,115,60.5,Threshold too loose
+83,2025-07-21,APAC,4279,26,133,45.4,Attribute mismatch
+84,2025-07-21,LATAM,1784,4,51,47.7,Pattern gap
+85,2025-07-22,North America,7853,34,418,38.1,Pattern gap
+86,2025-07-22,EMEA,5065,36,112,66.5,Threshold too loose
+87,2025-07-22,APAC,4386,16,163,60.1,Outdated logic
+88,2025-07-22,LATAM,1968,5,113,48.6,Pattern gap
+89,2025-07-23,North America,7241,37,308,28.1,Threshold too loose
+90,2025-07-23,EMEA,4997,26,150,31.8,Pattern gap
+91,2025-07-23,APAC,3978,10,176,43.4,Outdated logic
+92,2025-07-23,LATAM,2299,33,80,46.2,Attribute mismatch
+93,2025-07-24,North America,6440,33,151,49.5,Detection window too narrow
+94,2025-07-24,EMEA,5596,16,178,59.3,Pattern gap
+95,2025-07-24,APAC,3637,10,121,48.7,Threshold too loose
+96,2025-07-24,LATAM,2087,14,100,50.5,Pattern gap
+97,2025-07-25,North America,8322,45,302,45.2,Threshold too loose
+98,2025-07-25,EMEA,4855,28,159,50.7,Attribute mismatch
+99,2025-07-25,APAC,4193,27,168,55.4,Pattern gap
+100,2025-07-25,LATAM,1548,6,36,47.1,Outdated logic
+101,2025-07-26,North America,8865,30,216,35.1,Pattern gap
+102,2025-07-26,EMEA,5635,37,333,56.6,Pattern gap
+103,2025-07-26,APAC,4142,51,114,31.4,Threshold too loose
+104,2025-07-26,LATAM,2146,5,71,51.0,Outdated logic
+105,2025-07-27,North America,8984,48,467,50.3,Outdated logic
+106,2025-07-27,EMEA,6174,42,181,51.1,Attribute mismatch
+107,2025-07-27,APAC,3759,17,127,41.2,Threshold too loose
+108,2025-07-27,LATAM,1936,21,47,52.3,Attribute mismatch
+109,2025-07-28,North America,9055,38,303,46.6,Detection window too narrow
+110,2025-07-28,EMEA,4169,12,151,41.1,Attribute mismatch
+111,2025-07-28,APAC,4368,25,110,42.8,Threshold too loose
+112,2025-07-28,LATAM,2022,9,68,50.4,Threshold too loose
+113,2025-07-29,North America,8382,36,463,31.8,Attribute mismatch
+114,2025-07-29,EMEA,4386,26,213,29.7,Outdated logic
+115,2025-07-29,APAC,5001,44,211,22.9,Threshold too loose
+116,2025-07-29,LATAM,2351,8,119,49.9,Threshold too loose
+117,2025-07-30,North America,8232,38,392,40.0,Pattern gap
+118,2025-07-30,EMEA,5529,20,225,48.5,Outdated logic
+119,2025-07-30,APAC,3514,17,75,63.6,Threshold too loose
+120,2025-07-30,LATAM,1946,7,114,30.1,Pattern gap
+121,2025-07-31,North America,8281,160,230,25.3,Pattern gap
+122,2025-07-31,EMEA,4903,32,243,49.5,Threshold too loose
+123,2025-07-31,APAC,4394,22,100,30.9,Attribute mismatch
+124,2025-07-31,LATAM,1721,20,97,40.2,Pattern gap
+125,2025-08-01,North America,8092,31,346,36.2,Threshold too loose
+126,2025-08-01,EMEA,5397,33,173,50.1,Attribute mismatch
+127,2025-08-01,APAC,3761,10,117,39.5,Detection window too narrow
+128,2025-08-01,LATAM,2258,24,73,58.3,Pattern gap
+129,2025-08-02,North America,9322,61,234,38.6,Detection window too narrow
+130,2025-08-02,EMEA,4941,30,108,49.3,Threshold too loose
+131,2025-08-02,APAC,4261,18,149,39.9,Attribute mismatch
+132,2025-08-02,LATAM,1838,6,65,55.1,Outdated logic
+133,2025-08-03,North America,7974,40,182,38.4,Outdated logic
+134,2025-08-03,EMEA,5877,43,163,40.0,Attribute mismatch
+135,2025-08-03,APAC,4051,24,141,51.9,Attribute mismatch
+136,2025-08-03,LATAM,1926,5,59,39.8,Threshold too loose
+137,2025-08-04,North America,7514,49,365,39.1,Outdated logic
+138,2025-08-04,EMEA,5333,45,186,47.3,Outdated logic
+139,2025-08-04,APAC,3457,17,197,41.2,Detection window too narrow
+140,2025-08-04,LATAM,1901,7,56,43.8,Attribute mismatch
+141,2025-08-05,North America,8944,48,294,35.7,Attribute mismatch
+142,2025-08-05,EMEA,4629,26,97,41.3,Pattern gap
+143,2025-08-05,APAC,3743,24,100,64.7,Detection window too narrow
+144,2025-08-05,LATAM,1976,11,82,63.1,Attribute mismatch
+145,2025-08-06,North America,8060,25,273,42.6,Threshold too loose
+146,2025-08-06,EMEA,4469,11,107,47.5,Pattern gap
+147,2025-08-06,APAC,4029,18,127,34.8,Attribute mismatch
+148,2025-08-06,LATAM,1875,6,96,36.8,Attribute mismatch
+149,2025-08-07,North America,7052,33,177,56.9,Outdated logic
+150,2025-08-07,EMEA,5073,33,117,53.6,Threshold too loose
+151,2025-08-07,APAC,3821,26,157,41.3,Attribute mismatch
+152,2025-08-07,LATAM,1983,9,90,44.7,Pattern gap
+153,2025-08-08,North America,6589,41,315,34.9,Detection window too narrow
+154,2025-08-08,EMEA,4298,41,174,34.1,Threshold too loose
+155,2025-08-08,APAC,4498,19,118,42.5,Attribute mismatch
+156,2025-08-08,LATAM,2059,11,76,57.6,Pattern gap
+157,2025-08-09,North America,9213,144,367,51.6,Threshold too loose
+158,2025-08-09,EMEA,5434,16,258,47.0,Detection window too narrow
+159,2025-08-09,APAC,4129,27,198,48.0,Threshold too loose
+160,2025-08-09,LATAM,2032,7,72,42.5,Detection window too narrow
+161,2025-08-10,North America,7095,28,147,33.3,Detection window too narrow
+162,2025-08-10,EMEA,5781,38,211,43.4,Detection window too narrow
+163,2025-08-10,APAC,3629,55,188,55.1,Pattern gap
+164,2025-08-10,LATAM,1784,10,93,48.6,Pattern gap
+165,2025-08-11,North America,7411,41,220,55.0,Attribute mismatch
+166,2025-08-11,EMEA,5446,33,114,44.1,Pattern gap
+167,2025-08-11,APAC,4514,29,255,33.8,Detection window too narrow
+168,2025-08-11,LATAM,2269,13,47,35.4,Outdated logic
+169,2025-08-12,North America,8372,47,327,37.2,Pattern gap
+170,2025-08-12,EMEA,5553,38,287,52.1,Attribute mismatch
+171,2025-08-12,APAC,4266,14,225,62.5,Pattern gap
+172,2025-08-12,LATAM,2092,5,69,57.3,Threshold too loose
+173,2025-08-13,North America,7619,23,310,18.4,Detection window too narrow
+174,2025-08-13,EMEA,4907,24,130,56.0,Outdated logic
+175,2025-08-13,APAC,3402,24,175,48.1,Outdated logic
+176,2025-08-13,LATAM,1812,11,72,34.5,Attribute mismatch
+177,2025-08-14,North America,8804,74,212,53.3,Detection window too narrow
+178,2025-08-14,EMEA,4299,29,164,35.4,Pattern gap
+179,2025-08-14,APAC,3747,12,103,49.4,Attribute mismatch
+180,2025-08-14,LATAM,1936,14,100,38.4,Detection window too narrow
+181,2025-08-15,North America,8962,59,443,26.0,Pattern gap
+182,2025-08-15,EMEA,5928,18,166,52.6,Pattern gap
+183,2025-08-15,APAC,4336,32,124,49.5,Detection window too narrow
+184,2025-08-15,LATAM,1635,6,63,32.5,Threshold too loose
+185,2025-08-16,North America,8074,32,423,31.4,Attribute mismatch
+186,2025-08-16,EMEA,4595,25,221,53.5,Pattern gap
+187,2025-08-16,APAC,3815,23,117,43.9,Threshold too loose
+188,2025-08-16,LATAM,1904,9,77,45.0,Outdated logic
+189,2025-08-17,North America,8513,45,262,38.2,Outdated logic
+190,2025-08-17,EMEA,4311,19,88,41.5,Pattern gap
+191,2025-08-17,APAC,3988,21,144,40.3,Pattern gap
+192,2025-08-17,LATAM,2080,13,104,46.4,Threshold too loose
+193,2025-08-18,North America,6725,37,236,35.8,Detection window too narrow
+194,2025-08-18,EMEA,4669,24,199,54.9,Attribute mismatch
+195,2025-08-18,APAC,3932,15,169,57.8,Outdated logic
+196,2025-08-18,LATAM,1899,6,99,32.3,Threshold too loose
+197,2025-08-19,North America,8242,47,395,40.2,Threshold too loose
+198,2025-08-19,EMEA,4827,34,158,23.7,Detection window too narrow
+199,2025-08-19,APAC,3808,22,216,33.7,Outdated logic
+200,2025-08-19,LATAM,1928,12,109,51.4,Outdated logic
+201,2025-08-20,North America,7466,32,292,25.4,Threshold too loose
+202,2025-08-20,EMEA,4610,32,276,33.6,Detection window too narrow
+203,2025-08-20,APAC,3964,47,179,60.5,Attribute mismatch
+204,2025-08-20,LATAM,1912,5,92,69.3,Pattern gap
+205,2025-08-21,North America,9291,23,291,38.2,Pattern gap
+206,2025-08-21,EMEA,4777,17,186,40.8,Outdated logic
+207,2025-08-21,APAC,4192,17,184,29.8,Outdated logic
+208,2025-08-21,LATAM,1801,9,52,56.8,Outdated logic
+209,2025-08-22,North America,8039,49,244,35.7,Outdated logic
+210,2025-08-22,EMEA,5807,16,191,44.9,Detection window too narrow
+211,2025-08-22,APAC,4253,24,120,32.4,Pattern gap
+212,2025-08-22,LATAM,1939,12,91,47.2,Outdated logic
+213,2025-08-23,North America,8122,29,349,33.0,Outdated logic
+214,2025-08-23,EMEA,4509,19,222,41.5,Outdated logic
+215,2025-08-23,APAC,4100,18,120,36.7,Detection window too narrow
+216,2025-08-23,LATAM,2239,11,80,33.5,Pattern gap
+217,2025-08-24,North America,8178,47,302,43.8,Attribute mismatch
+218,2025-08-24,EMEA,5240,28,194,52.8,Attribute mismatch
+219,2025-08-24,APAC,4011,16,156,34.4,Threshold too loose
+220,2025-08-24,LATAM,2084,6,45,33.2,Outdated logic
+221,2025-08-25,North America,7956,27,408,41.2,Detection window too narrow
+222,2025-08-25,EMEA,4803,19,182,45.7,Outdated logic
+223,2025-08-25,APAC,4396,13,106,35.6,Attribute mismatch
+224,2025-08-25,LATAM,1815,9,94,52.9,Outdated logic
+225,2025-08-26,North America,7225,23,322,35.4,Outdated logic
+226,2025-08-26,EMEA,4911,35,291,40.7,Pattern gap
+227,2025-08-26,APAC,4293,15,118,33.5,Pattern gap
+228,2025-08-26,LATAM,1994,13,50,43.4,Pattern gap
+229,2025-08-27,North America,7671,42,311,31.8,Detection window too narrow
+230,2025-08-27,EMEA,4576,34,107,46.9,Detection window too narrow
+231,2025-08-27,APAC,3248,17,139,46.8,Outdated logic
+232,2025-08-27,LATAM,1934,4,99,55.5,Attribute mismatch
+233,2025-08-28,North America,8610,21,225,39.2,Outdated logic
+234,2025-08-28,EMEA,4978,17,202,44.8,Pattern gap
+235,2025-08-28,APAC,3914,10,140,34.0,Pattern gap
+236,2025-08-28,LATAM,1791,9,81,37.1,Outdated logic
+237,2025-08-29,North America,7604,39,292,37.1,Detection window too narrow
+238,2025-08-29,EMEA,5549,40,136,38.5,Outdated logic
+239,2025-08-29,APAC,3754,10,131,57.7,Outdated logic
+240,2025-08-29,LATAM,2120,7,126,67.1,Detection window too narrow
+241,2025-08-30,North America,7157,27,289,43.7,Attribute mismatch
+242,2025-08-30,EMEA,4726,19,107,25.0,Outdated logic
+243,2025-08-30,APAC,3940,16,153,46.9,Threshold too loose
+244,2025-08-30,LATAM,2204,8,65,34.1,Outdated logic
+245,2025-08-31,North America,7194,21,322,51.0,Outdated logic
+246,2025-08-31,EMEA,4492,21,128,45.4,Outdated logic
+247,2025-08-31,APAC,3952,28,184,22.9,Threshold too loose
+248,2025-08-31,LATAM,2182,13,106,28.3,Detection window too narrow
+249,2025-09-01,North America,6747,29,174,48.1,Threshold too loose
+250,2025-09-01,EMEA,5632,23,165,33.9,Attribute mismatch
+251,2025-09-01,APAC,3847,24,79,44.3,Threshold too loose
+252,2025-09-01,LATAM,2316,14,85,62.0,Threshold too loose
+253,2025-09-02,North America,8156,45,403,65.3,Pattern gap
+254,2025-09-02,EMEA,4963,88,287,47.9,Detection window too narrow
+255,2025-09-02,APAC,3881,25,214,37.6,Outdated logic
+256,2025-09-02,LATAM,1726,9,69,45.1,Outdated logic
+257,2025-09-03,North America,7126,18,316,55.9,Outdated logic
+258,2025-09-03,EMEA,5391,24,164,43.6,Detection window too narrow
+259,2025-09-03,APAC,4164,21,117,43.4,Attribute mismatch
+260,2025-09-03,LATAM,1909,6,50,50.1,Attribute mismatch
+261,2025-09-04,North America,8095,58,236,50.3,Outdated logic
+262,2025-09-04,EMEA,3352,30,103,56.6,Outdated logic
+263,2025-09-04,APAC,3728,15,220,33.7,Attribute mismatch
+264,2025-09-04,LATAM,2024,15,69,52.1,Pattern gap
+265,2025-09-05,North America,8444,30,401,44.3,Threshold too loose
+266,2025-09-05,EMEA,4697,17,94,33.9,Detection window too narrow
+267,2025-09-05,APAC,3855,11,162,51.7,Detection window too narrow
+268,2025-09-05,LATAM,1972,7,63,35.9,Detection window too narrow
+269,2025-09-06,North America,6583,17,193,37.8,Outdated logic
+270,2025-09-06,EMEA,5226,38,249,49.2,Detection window too narrow
+271,2025-09-06,APAC,3866,12,122,27.8,Threshold too loose
+272,2025-09-06,LATAM,2245,9,86,48.0,Pattern gap
+273,2025-09-07,North America,9023,49,320,52.3,Attribute mismatch
+274,2025-09-07,EMEA,4601,21,255,50.1,Attribute mismatch
+275,2025-09-07,APAC,4192,20,154,45.8,Threshold too loose
+276,2025-09-07,LATAM,2247,13,102,49.0,Attribute mismatch
+277,2025-09-08,North America,7890,56,312,50.3,Attribute mismatch
+278,2025-09-08,EMEA,4617,25,128,59.2,Attribute mismatch
+279,2025-09-08,APAC,4425,11,195,43.8,Outdated logic
+280,2025-09-08,LATAM,1827,5,36,27.2,Pattern gap
+281,2025-09-09,North America,7857,57,416,47.5,Threshold too loose
+282,2025-09-09,EMEA,5010,30,252,35.1,Pattern gap
+283,2025-09-09,APAC,3482,19,154,43.3,Attribute mismatch
+284,2025-09-09,LATAM,2198,7,85,37.4,Pattern gap
+285,2025-09-10,North America,6790,26,315,67.1,Detection window too narrow
+286,2025-09-10,EMEA,4875,17,212,36.0,Detection window too narrow
+287,2025-09-10,APAC,4809,34,139,47.7,Detection window too narrow
+288,2025-09-10,LATAM,1953,5,101,42.0,Threshold too loose
+289,2025-09-11,North America,6042,26,161,44.0,Outdated logic
+290,2025-09-11,EMEA,4539,17,184,37.0,Detection window too narrow
+291,2025-09-11,APAC,4448,15,109,51.8,Outdated logic
+292,2025-09-11,LATAM,1720,8,56,47.0,Threshold too loose
+293,2025-09-12,North America,7364,46,164,55.9,Threshold too loose
+294,2025-09-12,EMEA,6423,32,252,49.0,Threshold too loose
+295,2025-09-12,APAC,3446,14,77,37.0,Pattern gap
+296,2025-09-12,LATAM,2045,13,107,42.9,Attribute mismatch
+297,2025-09-13,North America,8161,26,350,57.9,Outdated logic
+298,2025-09-13,EMEA,5442,29,115,24.6,Outdated logic
+299,2025-09-13,APAC,4218,31,225,34.0,Outdated logic
+300,2025-09-13,LATAM,2356,10,116,31.7,Outdated logic
+301,2025-09-14,North America,7762,50,240,68.5,Pattern gap
+302,2025-09-14,EMEA,5204,14,152,56.8,Outdated logic
+303,2025-09-14,APAC,3558,17,162,69.5,Outdated logic
+304,2025-09-14,LATAM,2173,9,115,40.1,Pattern gap
+305,2025-09-15,North America,6952,129,363,44.5,Pattern gap
+306,2025-09-15,EMEA,4544,19,246,48.9,Pattern gap
+307,2025-09-15,APAC,4169,67,129,60.0,Pattern gap
+308,2025-09-15,LATAM,1951,24,71,48.6,Outdated logic
+309,2025-09-16,North America,8120,53,299,59.3,Outdated logic
+310,2025-09-16,EMEA,5702,20,251,54.5,Threshold too loose
+311,2025-09-16,APAC,3204,10,171,33.7,Pattern gap
+312,2025-09-16,LATAM,1868,5,84,58.9,Detection window too narrow
+313,2025-09-17,North America,9093,60,374,37.9,Threshold too loose
+314,2025-09-17,EMEA,4943,25,219,45.7,Pattern gap
+315,2025-09-17,APAC,4204,15,222,47.4,Pattern gap
+316,2025-09-17,LATAM,2059,6,111,35.9,Attribute mismatch
+317,2025-09-18,North America,8014,36,470,59.4,Pattern gap
+318,2025-09-18,EMEA,5179,18,261,31.6,Threshold too loose
+319,2025-09-18,APAC,5474,57,227,46.8,Pattern gap
+320,2025-09-18,LATAM,1711,9,44,27.2,Threshold too loose
+321,2025-09-19,North America,9179,30,298,45.0,Outdated logic
+322,2025-09-19,EMEA,4809,25,110,42.1,Detection window too narrow
+323,2025-09-19,APAC,4086,27,208,30.8,Attribute mismatch
+324,2025-09-19,LATAM,2141,13,73,50.7,Threshold too loose
+325,2025-09-20,North America,7360,54,160,48.5,Outdated logic
+326,2025-09-20,EMEA,4141,20,163,39.3,Pattern gap
+327,2025-09-20,APAC,3649,22,186,58.8,Threshold too loose
+328,2025-09-20,LATAM,1878,10,99,33.3,Attribute mismatch
+329,2025-09-21,North America,8218,41,368,31.6,Detection window too narrow
+330,2025-09-21,EMEA,4982,28,178,45.4,Attribute mismatch
+331,2025-09-21,APAC,3281,14,93,50.3,Outdated logic
+332,2025-09-21,LATAM,1733,8,66,51.7,Detection window too narrow
+333,2025-09-22,North America,7506,48,250,51.4,Detection window too narrow
+334,2025-09-22,EMEA,4714,24,103,36.7,Attribute mismatch
+335,2025-09-22,APAC,3770,25,168,41.8,Outdated logic
+336,2025-09-22,LATAM,2091,13,112,41.6,Attribute mismatch
+337,2025-09-23,North America,8022,29,339,68.9,Threshold too loose
+338,2025-09-23,EMEA,5110,21,244,54.1,Threshold too loose
+339,2025-09-23,APAC,4536,16,116,56.7,Pattern gap
+340,2025-09-23,LATAM,1505,9,74,34.3,Attribute mismatch
+341,2025-09-24,North America,7831,54,467,53.2,Threshold too loose
+342,2025-09-24,EMEA,5176,20,235,48.4,Outdated logic
+343,2025-09-24,APAC,3796,26,111,26.0,Pattern gap
+344,2025-09-24,LATAM,1626,8,92,55.4,Attribute mismatch
+345,2025-09-25,North America,7848,34,209,42.3,Threshold too loose
+346,2025-09-25,EMEA,6090,82,248,45.5,Pattern gap
+347,2025-09-25,APAC,3534,20,137,50.4,Pattern gap
+348,2025-09-25,LATAM,1960,11,84,52.5,Attribute mismatch
+349,2025-09-26,North America,7021,27,339,32.1,Detection window too narrow
+350,2025-09-26,EMEA,4613,19,144,64.7,Outdated logic
+351,2025-09-26,APAC,3911,20,199,41.0,Pattern gap
+352,2025-09-26,LATAM,2117,15,116,43.6,Pattern gap
+353,2025-09-27,North America,9123,55,401,61.6,Pattern gap
+354,2025-09-27,EMEA,5973,30,214,45.7,Outdated logic
+355,2025-09-27,APAC,4258,27,87,48.7,Attribute mismatch
+356,2025-09-27,LATAM,1951,6,73,49.4,Detection window too narrow
+357,2025-09-28,North America,8585,50,360,58.0,Threshold too loose
+358,2025-09-28,EMEA,5431,32,109,31.8,Pattern gap
+359,2025-09-28,APAC,3117,15,142,55.9,Outdated logic
+360,2025-09-28,LATAM,1964,5,67,63.1,Threshold too loose
+361,2025-09-29,North America,7719,29,239,55.5,Threshold too loose
+362,2025-09-29,EMEA,5079,28,212,38.9,Outdated logic
+363,2025-09-29,APAC,4256,21,145,52.6,Pattern gap
+364,2025-09-29,LATAM,1947,4,94,33.7,Outdated logic
+365,2025-09-30,North America,7414,37,196,73.1,Detection window too narrow
+366,2025-09-30,EMEA,4837,26,189,38.9,Attribute mismatch
+367,2025-09-30,APAC,4662,13,260,65.0,Pattern gap
+368,2025-09-30,LATAM,2322,14,100,53.1,Attribute mismatch
+369,2025-10-01,North America,7376,45,355,40.8,Pattern gap
+370,2025-10-01,EMEA,5255,27,235,47.5,Threshold too loose
+371,2025-10-01,APAC,4260,11,98,58.0,Attribute mismatch
+372,2025-10-01,LATAM,2030,14,78,38.0,Detection window too narrow
+373,2025-10-02,North America,7761,42,453,44.5,Pattern gap
+374,2025-10-02,EMEA,5512,36,138,57.4,Attribute mismatch
+375,2025-10-02,APAC,3905,20,185,38.8,Attribute mismatch
+376,2025-10-02,LATAM,2425,6,142,43.8,Detection window too narrow
+377,2025-10-03,North America,9669,52,399,37.1,Pattern gap
+378,2025-10-03,EMEA,4783,19,142,41.5,Detection window too narrow
+379,2025-10-03,APAC,4356,29,207,54.0,Outdated logic
+380,2025-10-03,LATAM,1823,6,70,26.2,Threshold too loose
+381,2025-10-04,North America,8427,44,235,65.8,Detection window too narrow
+382,2025-10-04,EMEA,5431,31,201,20.7,Outdated logic
+383,2025-10-04,APAC,3757,21,81,33.8,Detection window too narrow
+384,2025-10-04,LATAM,1888,12,98,36.3,Detection window too narrow
+385,2025-10-05,North America,8211,112,314,32.1,Pattern gap
+386,2025-10-05,EMEA,4898,21,193,33.5,Detection window too narrow
+387,2025-10-05,APAC,4212,28,212,43.2,Detection window too narrow
+388,2025-10-05,LATAM,1991,21,49,66.3,Attribute mismatch
+389,2025-10-06,North America,9326,40,388,41.1,Detection window too narrow
+390,2025-10-06,EMEA,4785,18,267,54.1,Threshold too loose
+391,2025-10-06,APAC,3813,25,219,35.7,Attribute mismatch
+392,2025-10-06,LATAM,2143,7,124,43.8,Detection window too narrow
+393,2025-10-07,North America,6910,44,366,45.4,Detection window too narrow
+394,2025-10-07,EMEA,5102,25,225,55.8,Pattern gap
+395,2025-10-07,APAC,3825,46,105,60.1,Threshold too loose
+396,2025-10-07,LATAM,1908,20,47,37.2,Detection window too narrow
+397,2025-10-08,North America,8666,123,306,49.8,Detection window too narrow
+398,2025-10-08,EMEA,4946,17,115,47.1,Attribute mismatch
+399,2025-10-08,APAC,4174,14,148,54.4,Attribute mismatch
+400,2025-10-08,LATAM,2176,14,84,48.3,Threshold too loose
+401,2025-10-09,North America,9759,44,358,48.4,Attribute mismatch
+402,2025-10-09,EMEA,4807,19,274,45.2,Detection window too narrow
+403,2025-10-09,APAC,3965,27,190,36.4,Outdated logic
+404,2025-10-09,LATAM,1679,4,86,51.5,Outdated logic
+405,2025-10-10,North America,8936,43,377,32.7,Pattern gap
+406,2025-10-10,EMEA,4706,14,108,51.1,Pattern gap
+407,2025-10-10,APAC,3507,55,89,49.1,Attribute mismatch
+408,2025-10-10,LATAM,2408,7,109,41.5,Outdated logic
+409,2025-10-11,North America,7297,30,188,21.3,Outdated logic
+410,2025-10-11,EMEA,4852,29,229,48.8,Outdated logic
+411,2025-10-11,APAC,3785,11,157,50.1,Outdated logic
+412,2025-10-11,LATAM,2204,17,128,33.8,Detection window too narrow
+413,2025-10-12,North America,7551,44,191,44.0,Attribute mismatch
+414,2025-10-12,EMEA,4851,17,114,43.7,Pattern gap
+415,2025-10-12,APAC,3292,20,80,34.4,Threshold too loose
+416,2025-10-12,LATAM,2419,12,63,31.3,Outdated logic
+417,2025-10-13,North America,6033,21,241,49.1,Threshold too loose
+418,2025-10-13,EMEA,5227,15,290,38.5,Outdated logic
+419,2025-10-13,APAC,3383,38,190,54.8,Detection window too narrow
+420,2025-10-13,LATAM,2143,6,63,35.1,Detection window too narrow
+421,2025-10-14,North America,7948,39,295,26.0,Detection window too narrow
+422,2025-10-14,EMEA,5016,31,152,42.7,Threshold too loose
+423,2025-10-14,APAC,4456,17,136,58.6,Threshold too loose
+424,2025-10-14,LATAM,2082,8,96,33.1,Attribute mismatch
+425,2025-10-15,North America,7428,48,443,45.9,Detection window too narrow
+426,2025-10-15,EMEA,5025,12,223,43.5,Attribute mismatch
+427,2025-10-15,APAC,3882,16,154,35.8,Detection window too narrow
+428,2025-10-15,LATAM,2153,12,116,24.5,Attribute mismatch
+429,2025-10-16,North America,8035,42,278,29.6,Outdated logic
+430,2025-10-16,EMEA,4884,25,101,45.7,Attribute mismatch
+431,2025-10-16,APAC,4866,14,290,46.1,Threshold too loose
+432,2025-10-16,LATAM,1674,8,92,57.6,Threshold too loose
+433,2025-10-17,North America,9681,42,304,47.7,Threshold too loose
+434,2025-10-17,EMEA,4528,19,245,58.8,Outdated logic
+435,2025-10-17,APAC,3663,10,80,57.1,Pattern gap
+436,2025-10-17,LATAM,2050,11,97,38.5,Pattern gap
+437,2025-10-18,North America,7399,39,427,51.6,Outdated logic
+438,2025-10-18,EMEA,5631,30,126,53.1,Outdated logic
+439,2025-10-18,APAC,3647,25,110,43.4,Outdated logic
+440,2025-10-18,LATAM,1913,7,55,46.2,Detection window too narrow
+441,2025-10-19,North America,7284,42,352,48.5,Detection window too narrow
+442,2025-10-19,EMEA,4865,29,202,75.0,Attribute mismatch
+443,2025-10-19,APAC,3555,10,135,33.5,Pattern gap
+444,2025-10-19,LATAM,1850,9,41,43.7,Attribute mismatch
+445,2025-10-20,North America,8465,43,343,45.1,Outdated logic
+446,2025-10-20,EMEA,4820,29,239,27.8,Outdated logic
+447,2025-10-20,APAC,4788,31,96,61.7,Attribute mismatch
+448,2025-10-20,LATAM,2243,8,93,32.3,Pattern gap
+449,2025-10-21,North America,8849,68,184,46.1,Pattern gap
+450,2025-10-21,EMEA,4603,18,162,48.2,Detection window too narrow
+451,2025-10-21,APAC,3191,20,105,29.4,Pattern gap
+452,2025-10-21,LATAM,2370,8,111,29.7,Threshold too loose
+453,2025-10-22,North America,7079,41,244,48.5,Detection window too narrow
+454,2025-10-22,EMEA,4645,15,100,48.4,Detection window too narrow
+455,2025-10-22,APAC,3628,21,94,40.7,Detection window too narrow
+456,2025-10-22,LATAM,2268,13,67,44.8,Outdated logic
+457,2025-10-23,North America,7237,37,341,53.3,Outdated logic
+458,2025-10-23,EMEA,5231,24,281,48.7,Outdated logic
+459,2025-10-23,APAC,4223,14,155,61.1,Pattern gap
+460,2025-10-23,LATAM,1809,6,94,32.4,Detection window too narrow
+461,2025-10-24,North America,7949,39,273,33.3,Detection window too narrow
+462,2025-10-24,EMEA,5596,31,289,44.1,Pattern gap
+463,2025-10-24,APAC,4037,20,126,50.7,Threshold too loose
+464,2025-10-24,LATAM,2059,11,111,55.8,Attribute mismatch
+465,2025-10-25,North America,7316,54,308,51.9,Detection window too narrow
+466,2025-10-25,EMEA,4398,25,164,58.3,Attribute mismatch
+467,2025-10-25,APAC,4253,25,169,52.3,Threshold too loose
+468,2025-10-25,LATAM,1829,7,57,27.7,Pattern gap
+469,2025-10-26,North America,7056,22,371,38.9,Detection window too narrow
+470,2025-10-26,EMEA,5247,38,200,31.2,Threshold too loose
+471,2025-10-26,APAC,4214,27,101,51.4,Pattern gap
+472,2025-10-26,LATAM,1768,12,99,53.8,Threshold too loose
+473,2025-10-27,North America,7766,24,185,36.4,Outdated logic
+474,2025-10-27,EMEA,5981,34,348,56.1,Attribute mismatch
+475,2025-10-27,APAC,3729,27,132,46.4,Detection window too narrow
+476,2025-10-27,LATAM,1820,12,58,47.1,Attribute mismatch
+477,2025-10-28,North America,7282,21,384,29.5,Pattern gap
+478,2025-10-28,EMEA,5468,23,137,40.8,Attribute mismatch
+479,2025-10-28,APAC,4168,15,117,39.2,Pattern gap
+480,2025-10-28,LATAM,1876,12,68,42.9,Detection window too narrow
+481,2025-10-29,North America,9266,47,374,57.5,Detection window too narrow
+482,2025-10-29,EMEA,5715,23,175,54.3,Detection window too narrow
+483,2025-10-29,APAC,3166,14,169,52.3,Attribute mismatch
+484,2025-10-29,LATAM,2025,8,74,37.5,Pattern gap
+485,2025-10-30,North America,7486,52,344,53.8,Threshold too loose
+486,2025-10-30,EMEA,5277,38,165,58.4,Attribute mismatch
+487,2025-10-30,APAC,3808,13,214,37.2,Detection window too narrow
+488,2025-10-30,LATAM,2221,9,49,42.2,Pattern gap
+489,2025-10-31,North America,7945,35,362,28.0,Pattern gap
+490,2025-10-31,EMEA,4710,13,260,44.1,Detection window too narrow
+491,2025-10-31,APAC,3737,11,179,58.7,Attribute mismatch
+492,2025-10-31,LATAM,2086,7,85,49.3,Detection window too narrow
+493,2025-11-01,North America,8978,34,477,38.9,Pattern gap
+494,2025-11-01,EMEA,4573,23,245,32.4,Outdated logic
+495,2025-11-01,APAC,3577,19,154,45.8,Detection window too narrow
+496,2025-11-01,LATAM,1847,13,74,46.4,Outdated logic
+497,2025-11-02,North America,8362,49,408,47.4,Threshold too loose
+498,2025-11-02,EMEA,5269,20,294,29.4,Detection window too narrow
+499,2025-11-02,APAC,3518,15,188,63.9,Pattern gap
+500,2025-11-02,LATAM,2187,12,131,44.6,Outdated logic
+501,2025-11-03,North America,8359,55,366,38.3,Outdated logic
+502,2025-11-03,EMEA,5224,16,222,69.8,Pattern gap
+503,2025-11-03,APAC,4228,37,252,51.2,Threshold too loose
+504,2025-11-03,LATAM,1746,10,80,32.2,Threshold too loose
+505,2025-11-04,North America,7938,39,372,35.6,Detection window too narrow
+506,2025-11-04,EMEA,5281,35,295,54.6,Threshold too loose
+507,2025-11-04,APAC,3538,12,202,41.1,Detection window too narrow
+508,2025-11-04,LATAM,2281,17,66,49.6,Outdated logic
+509,2025-11-05,North America,7944,47,436,51.9,Pattern gap
+510,2025-11-05,EMEA,5359,33,147,64.1,Threshold too loose
+511,2025-11-05,APAC,3985,29,132,21.5,Pattern gap
+512,2025-11-05,LATAM,2038,11,119,60.9,Pattern gap
+513,2025-11-06,North America,8016,94,429,34.3,Outdated logic
+514,2025-11-06,EMEA,4861,19,243,62.2,Threshold too loose
+515,2025-11-06,APAC,4378,30,125,44.4,Threshold too loose
+516,2025-11-06,LATAM,2239,11,45,53.5,Pattern gap
+517,2025-11-07,North America,7312,49,176,33.4,Attribute mismatch
+518,2025-11-07,EMEA,4309,26,147,40.8,Attribute mismatch
+519,2025-11-07,APAC,3609,15,106,50.6,Attribute mismatch
+520,2025-11-07,LATAM,2073,7,42,52.7,Pattern gap
+521,2025-11-08,North America,8297,49,302,23.7,Detection window too narrow
+522,2025-11-08,EMEA,5204,23,183,43.3,Pattern gap
+523,2025-11-08,APAC,3695,25,187,38.0,Attribute mismatch
+524,2025-11-08,LATAM,1908,7,43,64.4,Attribute mismatch
+525,2025-11-09,North America,7956,52,275,24.2,Pattern gap
+526,2025-11-09,EMEA,4536,17,102,42.4,Detection window too narrow
+527,2025-11-09,APAC,3790,16,125,42.9,Pattern gap
+528,2025-11-09,LATAM,1934,14,103,40.5,Attribute mismatch
+529,2025-11-10,North America,8019,24,386,44.0,Attribute mismatch
+530,2025-11-10,EMEA,4918,25,290,34.3,Attribute mismatch
+531,2025-11-10,APAC,4267,10,210,52.0,Pattern gap
+532,2025-11-10,LATAM,1827,11,61,39.7,Attribute mismatch
+533,2025-11-11,North America,8078,51,194,53.9,Threshold too loose
+534,2025-11-11,EMEA,4633,25,259,52.8,Outdated logic
+535,2025-11-11,APAC,4738,17,251,54.7,Attribute mismatch
+536,2025-11-11,LATAM,1754,6,51,41.9,Pattern gap
+537,2025-11-12,North America,7327,39,336,39.3,Pattern gap
+538,2025-11-12,EMEA,5594,29,173,38.1,Attribute mismatch
+539,2025-11-12,APAC,3197,22,158,48.1,Threshold too loose
+540,2025-11-12,LATAM,1889,8,108,37.0,Threshold too loose
+541,2025-11-13,North America,8423,48,171,43.7,Threshold too loose
+542,2025-11-13,EMEA,5397,18,194,43.1,Pattern gap
+543,2025-11-13,APAC,4110,27,231,56.9,Detection window too narrow
+544,2025-11-13,LATAM,1852,7,97,44.6,Pattern gap
+545,2025-11-14,North America,8711,95,393,56.1,Attribute mismatch
+546,2025-11-14,EMEA,5013,13,158,43.0,Detection window too narrow
+547,2025-11-14,APAC,3849,14,230,30.9,Pattern gap
+548,2025-11-14,LATAM,1753,10,52,29.3,Detection window too narrow
+549,2025-11-15,North America,6981,47,345,50.9,Outdated logic
+550,2025-11-15,EMEA,5169,15,199,34.1,Attribute mismatch
+551,2025-11-15,APAC,3907,12,97,28.1,Threshold too loose
+552,2025-11-15,LATAM,1702,8,99,38.9,Attribute mismatch
+553,2025-11-16,North America,8347,55,302,31.1,Threshold too loose
+554,2025-11-16,EMEA,4433,30,257,55.8,Pattern gap
+555,2025-11-16,APAC,3670,9,88,59.3,Pattern gap
+556,2025-11-16,LATAM,1746,8,64,54.8,Attribute mismatch
+557,2025-11-17,North America,8885,31,452,52.4,Attribute mismatch
+558,2025-11-17,EMEA,4522,13,266,39.7,Attribute mismatch
+559,2025-11-17,APAC,4048,10,86,44.6,Threshold too loose
+560,2025-11-17,LATAM,1831,7,61,44.3,Outdated logic
+561,2025-11-18,North America,7160,38,405,49.2,Outdated logic
+562,2025-11-18,EMEA,5202,94,115,45.6,Attribute mismatch
+563,2025-11-18,APAC,4531,12,216,48.5,Attribute mismatch
+564,2025-11-18,LATAM,2164,6,55,31.1,Attribute mismatch
+565,2025-11-19,North America,8851,36,375,40.9,Threshold too loose
+566,2025-11-19,EMEA,4690,30,267,30.0,Detection window too narrow
+567,2025-11-19,APAC,3855,12,192,60.4,Detection window too narrow
+568,2025-11-19,LATAM,2169,13,102,47.0,Detection window too narrow
+569,2025-11-20,North America,8691,61,423,32.9,Pattern gap
+570,2025-11-20,EMEA,4353,13,95,55.8,Attribute mismatch
+571,2025-11-20,APAC,3678,40,98,52.7,Threshold too loose
+572,2025-11-20,LATAM,1886,6,52,47.4,Outdated logic
+573,2025-11-21,North America,7325,31,243,42.7,Outdated logic
+574,2025-11-21,EMEA,4896,32,247,46.2,Outdated logic
+575,2025-11-21,APAC,4369,13,95,39.5,Detection window too narrow
+576,2025-11-21,LATAM,1967,7,110,48.8,Pattern gap
+577,2025-11-22,North America,8893,36,326,44.9,Detection window too narrow
+578,2025-11-22,EMEA,4513,12,184,55.7,Pattern gap
+579,2025-11-22,APAC,3851,25,106,38.2,Threshold too loose
+580,2025-11-22,LATAM,2110,7,61,50.8,Detection window too narrow
+581,2025-11-23,North America,7803,56,204,44.8,Outdated logic
+582,2025-11-23,EMEA,5255,35,277,45.8,Attribute mismatch
+583,2025-11-23,APAC,4268,21,145,41.7,Pattern gap
+584,2025-11-23,LATAM,1647,9,70,35.9,Threshold too loose
+585,2025-11-24,North America,7272,24,178,44.2,Threshold too loose
+586,2025-11-24,EMEA,4320,59,192,61.5,Pattern gap
+587,2025-11-24,APAC,3541,24,162,39.9,Threshold too loose
+588,2025-11-24,LATAM,2018,14,102,58.6,Outdated logic
+589,2025-11-25,North America,7886,44,432,53.5,Pattern gap
+590,2025-11-25,EMEA,5052,17,234,41.9,Outdated logic
+591,2025-11-25,APAC,3779,20,154,53.4,Threshold too loose
+592,2025-11-25,LATAM,1944,12,83,40.4,Detection window too narrow
+593,2025-11-26,North America,6374,38,349,43.3,Attribute mismatch
+594,2025-11-26,EMEA,5645,29,124,46.6,Attribute mismatch
+595,2025-11-26,APAC,3514,43,118,54.0,Outdated logic
+596,2025-11-26,LATAM,1937,11,76,50.9,Outdated logic
+597,2025-11-27,North America,8233,56,365,38.4,Detection window too narrow
+598,2025-11-27,EMEA,4193,30,107,65.1,Pattern gap
+599,2025-11-27,APAC,4796,18,151,38.1,Threshold too loose
+600,2025-11-27,LATAM,1859,9,55,33.0,Outdated logic
+601,2025-11-28,North America,7319,33,433,42.5,Threshold too loose
+602,2025-11-28,EMEA,5501,15,117,40.5,Attribute mismatch
+603,2025-11-28,APAC,3361,22,100,54.0,Threshold too loose
+604,2025-11-28,LATAM,2170,14,75,40.3,Detection window too narrow
+605,2025-11-29,North America,7078,49,420,41.5,Detection window too narrow
+606,2025-11-29,EMEA,5609,26,298,41.3,Detection window too narrow
+607,2025-11-29,APAC,3791,24,132,39.0,Outdated logic
+608,2025-11-29,LATAM,1721,11,39,38.6,Threshold too loose
+609,2025-11-30,North America,7680,29,247,46.0,Detection window too narrow
+610,2025-11-30,EMEA,5392,38,250,44.4,Attribute mismatch
+611,2025-11-30,APAC,4103,13,130,52.3,Threshold too loose
+612,2025-11-30,LATAM,1717,8,78,33.8,Outdated logic
+613,2025-12-01,North America,7582,36,320,42.7,Attribute mismatch
+614,2025-12-01,EMEA,5487,39,221,43.9,Detection window too narrow
+615,2025-12-01,APAC,3622,18,172,31.5,Threshold too loose
+616,2025-12-01,LATAM,2134,12,83,33.3,Detection window too narrow
+617,2025-12-02,North America,8550,22,225,35.7,Pattern gap
+618,2025-12-02,EMEA,4580,28,232,42.4,Threshold too loose
+619,2025-12-02,APAC,4155,28,170,48.6,Detection window too narrow
+620,2025-12-02,LATAM,2358,15,87,42.6,Pattern gap
+621,2025-12-03,North America,7230,25,411,37.9,Detection window too narrow
+622,2025-12-03,EMEA,5355,31,239,48.0,Pattern gap
+623,2025-12-03,APAC,4137,23,235,48.4,Detection window too narrow
+624,2025-12-03,LATAM,2041,24,47,50.4,Pattern gap
+625,2025-12-04,North America,7462,40,235,37.9,Outdated logic
+626,2025-12-04,EMEA,5326,14,134,37.8,Attribute mismatch
+627,2025-12-04,APAC,4457,27,247,50.3,Attribute mismatch
+628,2025-12-04,LATAM,1941,12,84,42.9,Outdated logic
+629,2025-12-05,North America,7732,49,215,46.5,Detection window too narrow
+630,2025-12-05,EMEA,4886,13,153,48.1,Attribute mismatch
+631,2025-12-05,APAC,4533,34,271,51.3,Threshold too loose
+632,2025-12-05,LATAM,1812,26,95,62.0,Outdated logic
+633,2025-12-06,North America,6582,33,378,39.7,Attribute mismatch
+634,2025-12-06,EMEA,5261,17,210,60.9,Pattern gap
+635,2025-12-06,APAC,4367,13,154,53.4,Detection window too narrow
+636,2025-12-06,LATAM,2017,8,50,53.3,Attribute mismatch
+637,2025-12-07,North America,9166,45,244,43.7,Detection window too narrow
+638,2025-12-07,EMEA,5553,109,216,52.9,Threshold too loose
+639,2025-12-07,APAC,4693,12,116,49.9,Attribute mismatch
+640,2025-12-07,LATAM,2098,10,106,38.5,Attribute mismatch
+641,2025-12-08,North America,8978,39,299,37.2,Threshold too loose
+642,2025-12-08,EMEA,4734,55,211,49.2,Pattern gap
+643,2025-12-08,APAC,3834,10,155,27.9,Outdated logic
+644,2025-12-08,LATAM,2115,6,42,24.4,Attribute mismatch
+645,2025-12-09,North America,7943,42,316,37.0,Pattern gap
+646,2025-12-09,EMEA,4320,24,115,34.5,Pattern gap
+647,2025-12-09,APAC,4161,20,243,59.6,Attribute mismatch
+648,2025-12-09,LATAM,2413,17,110,37.3,Detection window too narrow
+649,2025-12-10,North America,7714,33,232,52.9,Threshold too loose
+650,2025-12-10,EMEA,4968,25,249,51.8,Detection window too narrow
+651,2025-12-10,APAC,3999,25,105,42.6,Attribute mismatch
+652,2025-12-10,LATAM,1656,7,86,27.8,Pattern gap
+653,2025-12-11,North America,7524,20,328,27.4,Outdated logic
+654,2025-12-11,EMEA,5424,33,121,52.9,Detection window too narrow
+655,2025-12-11,APAC,4595,11,241,46.8,Attribute mismatch
+656,2025-12-11,LATAM,1865,11,109,61.3,Threshold too loose
+657,2025-12-12,North America,7972,46,418,52.8,Attribute mismatch
+658,2025-12-12,EMEA,4751,18,250,49.1,Detection window too narrow
+659,2025-12-12,APAC,3991,26,129,58.8,Detection window too narrow
+660,2025-12-12,LATAM,1994,12,69,38.5,Threshold too loose
+661,2025-12-13,North America,8145,47,301,39.2,Outdated logic
+662,2025-12-13,EMEA,4546,33,210,37.6,Pattern gap
+663,2025-12-13,APAC,3402,35,88,55.3,Threshold too loose
+664,2025-12-13,LATAM,1973,9,87,46.6,Outdated logic
+665,2025-12-14,North America,8641,51,392,41.3,Detection window too narrow
+666,2025-12-14,EMEA,5142,35,284,36.1,Attribute mismatch
+667,2025-12-14,APAC,4645,16,172,57.0,Attribute mismatch
+668,2025-12-14,LATAM,2029,8,66,36.7,Outdated logic
+669,2025-12-15,North America,7675,45,191,31.6,Threshold too loose
+670,2025-12-15,EMEA,5296,17,159,47.6,Outdated logic
+671,2025-12-15,APAC,3679,9,129,34.2,Threshold too loose
+672,2025-12-15,LATAM,2119,10,78,30.7,Attribute mismatch
+673,2025-12-16,North America,8990,129,292,39.3,Detection window too narrow
+674,2025-12-16,EMEA,4603,15,188,57.0,Detection window too narrow
+675,2025-12-16,APAC,3653,12,82,54.3,Outdated logic
+676,2025-12-16,LATAM,2195,13,61,49.0,Attribute mismatch
+677,2025-12-17,North America,8169,38,485,32.9,Detection window too narrow
+678,2025-12-17,EMEA,5081,26,260,39.3,Attribute mismatch
+679,2025-12-17,APAC,3759,23,161,30.7,Detection window too narrow
+680,2025-12-17,LATAM,1922,12,57,30.6,Threshold too loose
+681,2025-12-18,North America,7451,66,172,47.7,Pattern gap
+682,2025-12-18,EMEA,4992,29,245,62.6,Outdated logic
+683,2025-12-18,APAC,3564,12,187,36.1,Attribute mismatch
+684,2025-12-18,LATAM,1690,12,39,46.3,Outdated logic
+685,2025-12-19,North America,7630,38,431,23.9,Threshold too loose
+686,2025-12-19,EMEA,4572,11,233,44.5,Outdated logic
+687,2025-12-19,APAC,3937,14,156,51.2,Threshold too loose
+688,2025-12-19,LATAM,2101,8,80,35.4,Detection window too narrow
+689,2025-12-20,North America,7091,49,220,46.4,Pattern gap
+690,2025-12-20,EMEA,5277,14,236,38.2,Pattern gap
+691,2025-12-20,APAC,3736,14,209,39.8,Pattern gap
+692,2025-12-20,LATAM,2088,6,103,40.5,Attribute mismatch
+693,2025-12-21,North America,7668,46,161,62.0,Detection window too narrow
+694,2025-12-21,EMEA,4940,20,223,31.8,Pattern gap
+695,2025-12-21,APAC,4620,14,140,52.4,Pattern gap
+696,2025-12-21,LATAM,2194,7,62,54.5,Attribute mismatch
+697,2025-12-22,North America,7173,35,254,50.5,Detection window too narrow
+698,2025-12-22,EMEA,5128,27,297,43.8,Attribute mismatch
+699,2025-12-22,APAC,4140,27,138,46.2,Threshold too loose
+700,2025-12-22,LATAM,2072,9,101,48.2,Attribute mismatch
+701,2025-12-23,North America,8192,57,254,41.2,Threshold too loose
+702,2025-12-23,EMEA,4511,20,178,46.9,Detection window too narrow
+703,2025-12-23,APAC,4809,26,199,20.1,Pattern gap
+704,2025-12-23,LATAM,1901,8,54,38.7,Attribute mismatch
+705,2025-12-24,North America,7066,22,303,56.4,Detection window too narrow
+706,2025-12-24,EMEA,5644,30,175,33.5,Outdated logic
+707,2025-12-24,APAC,3330,21,132,45.6,Outdated logic
+708,2025-12-24,LATAM,2010,5,83,50.1,Threshold too loose
+709,2025-12-25,North America,6744,42,245,60.4,Detection window too narrow
+710,2025-12-25,EMEA,5996,38,125,42.4,Detection window too narrow
+711,2025-12-25,APAC,3850,27,217,56.2,Outdated logic
+712,2025-12-25,LATAM,1868,5,104,51.4,Detection window too narrow
+713,2025-12-26,North America,8340,53,350,35.8,Attribute mismatch
+714,2025-12-26,EMEA,5070,20,302,42.0,Detection window too narrow
+715,2025-12-26,APAC,4649,29,232,52.0,Pattern gap
+716,2025-12-26,LATAM,2365,10,90,41.4,Detection window too narrow
+717,2025-12-27,North America,7859,93,238,24.0,Attribute mismatch
+718,2025-12-27,EMEA,4715,31,243,53.2,Threshold too loose
+719,2025-12-27,APAC,3966,22,158,45.6,Detection window too narrow
+720,2025-12-27,LATAM,2227,10,74,24.0,Pattern gap
