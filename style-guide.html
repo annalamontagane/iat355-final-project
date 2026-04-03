@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Style Guide — FraudLens Design System</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* ---- Style Guide overrides ---- */
+        body {
+            background: var(--bg-base);
+        }
+
+        .sg-page {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: var(--space-xl) var(--space-xl) var(--space-3xl);
+        }
+
+        .sg-header {
+            padding: var(--space-2xl) 0 var(--space-xl);
+            border-bottom: 1px solid var(--bg-border);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .sg-eyebrow {
+            font-size: var(--type-xs);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--mc-orange);
+            margin-bottom: var(--space-sm);
+        }
+
+        .sg-header-title {
+            font-size: var(--type-3xl);
+            font-weight: 700;
+            line-height: 1.0;
+            margin-bottom: var(--space-md);
+        }
+
+        .sg-header-desc {
+            font-size: var(--type-base);
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.6;
+            max-width: 560px;
+        }
+
+        .sg-nav {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .sg-nav a {
+            font-size: var(--type-xs);
+            font-weight: 700;
+            color: var(--text-muted);
+            transition: color var(--transition-fast);
+        }
+
+        .sg-nav a:hover {
+            color: var(--mc-orange);
+        }
+
+        /* Section blocks */
+        .sg-section {
+            margin-bottom: var(--space-3xl);
+        }
+
+        .sg-section-label {
+            font-size: var(--type-xs);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--mc-orange);
+            margin-bottom: var(--space-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .sg-section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--bg-border);
+        }
+
+        /* Color swatches */
+        .swatch-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .swatch {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--bg-border);
+        }
+
+        .swatch-color {
+            height: 72px;
+        }
+
+        .swatch-info {
+            padding: var(--space-sm);
+            background: var(--bg-card);
+        }
+
+        .swatch-name {
+            font-size: var(--type-xs);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .swatch-value {
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        .swatch-grid--secondary {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        /* Typography specimens */
+        .type-row {
+            display: flex;
+            align-items: baseline;
+            gap: var(--space-xl);
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid var(--bg-border);
+        }
+
+        .type-row:last-child {
+            border-bottom: none;
+        }
+
+        .type-meta {
+            min-width: 180px;
+            flex-shrink: 0;
+        }
+
+        .type-meta-label {
+            font-size: var(--type-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+
+        .type-meta-spec {
+            font-size: var(--type-xs);
+            color: var(--text-muted);
+            font-family: 'Courier New', monospace;
+            margin-top: 2px;
+        }
+
+        .type-specimen {
+            flex: 1;
+        }
+
+        /* UI Component examples */
+        .component-row {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid var(--bg-border);
+        }
+
+        .component-row:last-child {
+            border-bottom: none;
+        }
+
+        .component-label {
+            min-width: 140px;
+            font-size: var(--type-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+
+        /* Buttons */
+        .btn {
+            font-family: 'MarkForMC', sans-serif;
+            font-size: var(--type-sm);
+            font-weight: 700;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            letter-spacing: 0.04em;
+        }
+
+        .btn--primary {
+            background: var(--mc-orange);
+            color: #fff;
+        }
+
+        .btn--primary:hover {
+            background: #E55500;
+        }
+
+        .btn--secondary {
+            background: transparent;
+            border: 1px solid var(--mc-orange);
+            color: var(--mc-orange);
+        }
+
+        .btn--secondary:hover {
+            background: rgba(255, 95, 0, 0.1);
+        }
+
+        .btn--danger {
+            background: var(--mc-red);
+            color: #fff;
+        }
+
+        .btn--ghost {
+            background: transparent;
+            border: 1px solid var(--bg-border);
+            color: var(--text-muted);
+        }
+
+        .btn--ghost:hover {
+            border-color: var(--text-secondary);
+            color: var(--text-primary);
+        }
+
+        .btn--sm {
+            font-size: var(--type-xs);
+            padding: 5px 12px;
+        }
+
+        /* Sample card */
+        .sg-sample-card {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            max-width: 320px;
+        }
+
+        /* Spacing tokens */
+        .spacing-grid {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .spacing-row {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .spacing-bar {
+            background: var(--mc-orange);
+            height: 12px;
+            border-radius: 2px;
+            opacity: 0.7;
+        }
+
+        .spacing-label {
+            font-size: var(--type-xs);
+            font-family: 'Courier New', monospace;
+            color: var(--text-muted);
+            min-width: 120px;
+        }
+
+        /* Status indicators */
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        .status-dot--red {
+            background: var(--mc-red);
+        }
+
+        .status-dot--orange {
+            background: var(--mc-orange);
+        }
+
+        .status-dot--yellow {
+            background: var(--mc-yellow);
+        }
+
+        .status-dot--green {
+            background: var(--status-ok);
+        }
+
+        @media (max-width: 700px) {
+            .swatch-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .swatch-grid--secondary {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sg-page">
+
+        <!-- HEADER -->
+        <header class="sg-header">
+            <div class="sg-nav">
+                <a href="index.html">← Dashboard</a>
+                <span class="text-muted text-xs">·</span>
+                <a href="visualizations.html">Visualizations</a>
+            </div>
+            <div style="margin-top: var(--space-lg);">
+                <div class="sg-eyebrow">FraudLens Design System · IAT 355 · Group MC</div>
+                <h1 class="sg-header-title">Style Guide</h1>
+                <p class="sg-header-desc">Design tokens, typography, color palette, and UI components derived from the
+                    Mastercard Brand Identity and Design Guidelines. Used as the visual foundation for the FraudLens
+                    fraud analytics dashboard.</p>
+            </div>
+        </header>
+
+
+        SECTION 1: COLOR PALETTE
+
+        <section class="sg-section">
+            <div class="sg-section-label">01 · Color Palette</div>
+
+            <p class="text-sm text-muted mb-lg">Core Mastercard brand colors form the primary palette. Extended dark
+                surfaces and semantic status colors extend the system for dashboard use.</p>
+
+            <p class="text-xs text-muted mb-md"
+                style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Mastercard Brand Colors</p>
+            <div class="swatch-grid">
+                <div class="swatch">
+                    <div class="swatch-color" style="background: #EB001B;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">MC Red</div>
+                        <div class="swatch-value">--mc-red<br>#EB001B</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-color" style="background: #FF5F00;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">MC Orange</div>
+                        <div class="swatch-value">--mc-orange<br>#FF5F00</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-color" style="background: #F79E1B;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">MC Yellow</div>
+                        <div class="swatch-value">--mc-yellow<br>#F79E1B</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-color" style="background: #000;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">MC Black</div>
+                        <div class="swatch-value">--mc-black<br>#000000</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-color" style="background: #fff; border-bottom: 1px solid #2E2E2E;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">MC White</div>
+                        <div class="swatch-value">--mc-white<br>#FFFFFF</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-xs text-muted mb-md mt-lg"
+                style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Dashboard Surface Colors</p>
+            <div class="swatch-grid swatch-grid--secondary">
+                <div class="swatch">
+                    <div class="swatch-color" style="background: #0A0A0A;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Base</div>
+                        <div class="swatch-value">--bg-base<br>#0A0A0A</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-color" style="background: #111111;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Surface</div>
+                        <div class="swatch-value">--bg-surface<br>#111111</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-color" style="background: #1A1A1A;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Elevated</div>
+                        <div class="swatch-value">--bg-elevated<br>#1A1A1A</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="swatch-color" style="background: #1E1E1E;"></div>
+                    <div class="swatch-info">
+                        <div class="swatch-name">Card</div>
+                        <div class="swatch-value">--bg-card<br>#1E1E1E</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-xs text-muted mb-md mt-lg"
+                style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Status & Semantic Colors</p>
+            <div class="component-row" style="border: none; padding: 0; gap: var(--space-xl);">
+                <div>
+                    <span class="status-dot status-dot--red"></span>
+                    <span class="text-sm">High Priority / Alert</span>
+                    <div class="text-xs text-muted" style="font-family: monospace; margin-left: 14px;">#EB001B</div>
+                </div>
+                <div>
+                    <span class="status-dot status-dot--orange"></span>
+                    <span class="text-sm">Medium Priority / Warning</span>
+                    <div class="text-xs text-muted" style="font-family: monospace; margin-left: 14px;">#FF5F00</div>
+                </div>
+                <div>
+                    <span class="status-dot status-dot--yellow"></span>
+                    <span class="text-sm">Low Priority</span>
+                    <div class="text-xs text-muted" style="font-family: monospace; margin-left: 14px;">#F79E1B</div>
+                </div>
+                <div>
+                    <span class="status-dot status-dot--green"></span>
+                    <span class="text-sm">Success / Legitimate</span>
+                    <div class="text-xs text-muted" style="font-family: monospace; margin-left: 14px;">#22C55E</div>
+                </div>
+            </div>
+
+        </section>
+
+
+        SECTION 2: TYPOGRAPHY
+
+        <section class="sg-section">
+            <div class="sg-section-label">02 · Typography</div>
+
+            <p class="text-sm text-muted mb-lg">MarkForMC (Norrow) is Mastercard's proprietary typeface. Four weights
+                are used across the dashboard hierarchy: Bold (700) for headings and emphasis, Light (300) for body text
+                and secondary information.</p>
+
+            <div class="type-row">
+                <div class="type-meta">
+                    <div class="type-meta-label">Display / Hero</div>
+                    <div class="type-meta-spec">52px · Bold · lh 1.0</div>
+                </div>
+                <div class="type-specimen">
+                    <span style="font-size: 52px; font-weight: 700; line-height: 1.0;">Fraud Analytics</span>
+                </div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-meta">
+                    <div class="type-meta-label">Heading XL</div>
+                    <div class="type-meta-spec">36px · Bold · lh 1.1</div>
+                </div>
+                <div class="type-specimen">
+                    <span style="font-size: 36px; font-weight: 700; line-height: 1.1;">Rule Performance</span>
+                </div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-meta">
+                    <div class="type-meta-label">Heading L</div>
+                    <div class="type-meta-spec">28px · Bold · lh 1.15</div>
+                </div>
+                <div class="type-specimen">
+                    <span style="font-size: 28px; font-weight: 700;">Overview Dashboard</span>
+                </div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-meta">
+                    <div class="type-meta-label">Heading M</div>
+                    <div class="type-meta-spec">22px · Bold · lh 1.2</div>
+                </div>
+                <div class="type-specimen">
+                    <span style="font-size: 22px; font-weight: 700;">Missed Fraud Trend</span>
+                </div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-meta">
+                    <div class="type-meta-label">Body / UI Label</div>
+                    <div class="type-meta-spec">17px · Bold · lh 1.4</div>
+                </div>
+                <div class="type-specimen">
+                    <span style="font-size: 17px; font-weight: 700;">False Positive Analysis</span>
+                </div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-meta">
+                    <div class="type-meta-label">Body Regular</div>
+                    <div class="type-meta-spec">15px · Light · lh 1.5</div>
+                </div>
+                <div class="type-specimen">
+                    <span style="font-size: 15px; font-weight: 300;">Rule VD-338 caused 8,402 missed fraud events due to
+                        a threshold set too loose at 15 attempts, while fraud occurs at 12 attempts.</span>
+                </div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-meta">
+                    <div class="type-meta-label">Small / Metadata</div>
+                    <div class="type-meta-spec">13px · Light · lh 1.4</div>
+                </div>
+                <div class="type-specimen">
+                    <span style="font-size: 13px; font-weight: 300; color: #A0A0A0;">Last edited: 2026-03-13 · Financial
+                        impact: $831,900 · Priority: High</span>
+                </div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-meta">
+                    <div class="type-meta-label">Label / Caps</div>
+                    <div class="type-meta-spec">11px · Bold · tracking 0.12em</div>
+                </div>
+                <div class="type-specimen">
+                    <span
+                        style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #606060;">Total
+                        Missed Fraud · Last 30 Days</span>
+                </div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-meta">
+                    <div class="type-meta-label">Bold Italic</div>
+                    <div class="type-meta-spec">15px · BoldIt · lh 1.5</div>
+                </div>
+                <div class="type-specimen">
+                    <span style="font-size: 15px; font-weight: 700; font-style: italic; color: #FF5F00;">Device Velocity
+                        Window — High Priority</span>
+                </div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-meta">
+                    <div class="type-meta-label">Light Italic</div>
+                    <div class="type-meta-spec">15px · LightIt · lh 1.5</div>
+                </div>
+                <div class="type-specimen">
+                    <span style="font-size: 15px; font-weight: 300; font-style: italic; color: #A0A0A0;">Threshold too
+                        loose — fraud occurs at 12 attempts while the rule allows 15</span>
+                </div>
+            </div>
+        </section>
+
+
+        SECTION 3: UI COMPONENTS
+
+        <section class="sg-section">
+            <div class="sg-section-label">03 · UI Components</div>
+
+            <!-- Buttons -->
+            <div class="component-row">
+                <div class="component-label">Primary Button</div>
+                <button class="btn btn--primary">Export Report</button>
+                <button class="btn btn--primary btn--sm">View Rule</button>
+            </div>
+
+            <div class="component-row">
+                <div class="component-label">Secondary Button</div>
+                <button class="btn btn--secondary">Apply Filter</button>
+                <button class="btn btn--secondary btn--sm">Deep Dive →</button>
+            </div>
+
+            <div class="component-row">
+                <div class="component-label">Danger Button</div>
+                <button class="btn btn--danger">Flag Rule</button>
+            </div>
+
+            <div class="component-row">
+                <div class="component-label">Ghost Button</div>
+                <button class="btn btn--ghost">Reset Filters</button>
+                <button class="btn btn--ghost btn--sm">Cancel</button>
+            </div>
+
+            <!-- Priority Badges -->
+            <div class="component-row">
+                <div class="component-label">Priority Badges</div>
+                <span class="priority-badge priority-badge--high">High</span>
+                <span class="priority-badge priority-badge--medium">Medium</span>
+                <span class="priority-badge priority-badge--low">Low</span>
+            </div>
+
+            <!-- Rule ID chip -->
+            <div class="component-row">
+                <div class="component-label">Rule ID Chips</div>
+                <span class="rule-id">VD-338</span>
+                <span class="rule-id">CA-221</span>
+                <span class="rule-id">IP-519</span>
+                <span class="rule-id">ML-660</span>
+            </div>
+
+            <!-- Filter pills -->
+            <div class="component-row">
+                <div class="component-label">Filter Pills</div>
+                <button class="filter-btn active">All Regions</button>
+                <button class="filter-btn">North America</button>
+                <button class="filter-btn">EMEA</button>
+                <button class="filter-btn">APAC</button>
+            </div>
+
+            <!-- WIP Banner -->
+            <div class="component-row" style="display: block;">
+                <div class="component-label" style="margin-bottom: var(--space-sm);">WIP Banner</div>
+                <div class="wip-banner">
+                    <span>⚠</span>
+                    <span>This section is partially implemented. Additional features are planned for Milestone 2.</span>
+                </div>
+            </div>
+
+            <!-- Sample KPI Card -->
+            <div class="component-row" style="display: block;">
+                <div class="component-label" style="margin-bottom: var(--space-sm);">KPI Card</div>
+                <div style="display: flex; gap: var(--space-md);">
+                    <div class="kpi-card kpi-card--alert" style="max-width: 220px;">
+                        <div class="kpi-label">Total Missed Fraud</div>
+                        <div class="kpi-value kpi-value--alert">12,847</div>
+                        <div class="kpi-delta kpi-delta--up">
+                            <span class="kpi-delta-arrow">↑</span>
+                            <span>+3.2% vs prior 30d</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card" style="max-width: 220px;">
+                        <div class="kpi-label">False Positives</div>
+                        <div class="kpi-value kpi-value--warn">21,904</div>
+                        <div class="kpi-delta kpi-delta--down">
+                            <span class="kpi-delta-arrow">↓</span>
+                            <span>−1.1% vs prior 30d</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample data table snippet -->
+            <div class="component-row" style="display: block;">
+                <div class="component-label" style="margin-bottom: var(--space-sm);">Data Table Row</div>
+                <div class="chart-card" style="padding: 0; overflow: hidden;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Rule ID <span class="sort-arrow">↕</span></th>
+                                <th>Rule Name <span class="sort-arrow">↕</span></th>
+                                <th>FN Count <span class="sort-arrow">↓</span></th>
+                                <th>Financial Impact <span class="sort-arrow">↕</span></th>
+                                <th>Priority <span class="sort-arrow">↕</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="rule-id">VD-338b</span></td>
+                                <td class="text-bold">Device Velocity Window B</td>
+                                <td class="text-bold text-danger">8,719</td>
+                                <td class="impact-value impact-value--high">$893K</td>
+                                <td><span class="priority-badge priority-badge--high">High</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="rule-id">CA-221</span></td>
+                                <td class="text-bold">CNP Repeat Declines</td>
+                                <td class="text-bold">6,241</td>
+                                <td class="impact-value">$887K</td>
+                                <td><span class="priority-badge priority-badge--high">High</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="rule-id">IP-519</span></td>
+                                <td class="text-bold">IP / Geo Mismatch</td>
+                                <td class="text-muted">1,204</td>
+                                <td class="impact-value">$184K</td>
+                                <td><span class="priority-badge priority-badge--medium">Medium</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+
+        SECTION 4: SPACING TOKENS
+
+        <section class="sg-section">
+            <div class="sg-section-label">04 · Spacing Tokens</div>
+
+            <div class="spacing-grid">
+                <div class="spacing-row">
+                    <div class="spacing-label">--space-xs · 4px</div>
+                    <div class="spacing-bar" style="width: 4px;"></div>
+                </div>
+                <div class="spacing-row">
+                    <div class="spacing-label">--space-sm · 8px</div>
+                    <div class="spacing-bar" style="width: 8px;"></div>
+                </div>
+                <div class="spacing-row">
+                    <div class="spacing-label">--space-md · 16px</div>
+                    <div class="spacing-bar" style="width: 16px;"></div>
+                </div>
+                <div class="spacing-row">
+                    <div class="spacing-label">--space-lg · 24px</div>
+                    <div class="spacing-bar" style="width: 24px;"></div>
+                </div>
+                <div class="spacing-row">
+                    <div class="spacing-label">--space-xl · 32px</div>
+                    <div class="spacing-bar" style="width: 32px;"></div>
+                </div>
+                <div class="spacing-row">
+                    <div class="spacing-label">--space-2xl · 48px</div>
+                    <div class="spacing-bar" style="width: 48px;"></div>
+                </div>
+                <div class="spacing-row">
+                    <div class="spacing-label">--space-3xl · 64px</div>
+                    <div class="spacing-bar" style="width: 64px;"></div>
+                </div>
+            </div>
+        </section>
+
+
+        SECTION 5: DESIGN PRINCIPLES
+
+        <section class="sg-section">
+            <div class="sg-section-label">05 · Design Principles</div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);">
+                <div class="chart-card">
+                    <div class="chart-card-title mb-md">Hierarchy</div>
+                    <p class="text-sm text-muted text-light">Information is organized into clear levels: KPI cards at
+                        the top, supporting charts below, detail tables at the bottom. Bold weight signals what matters
+                        most.</p>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-card-title mb-md">Color as Signal</div>
+                    <p class="text-sm text-muted text-light">Red (--mc-red) is reserved for high-priority alerts. Orange
+                        (--mc-orange) marks interactive elements and medium-severity states. Yellow for low priority.
+                    </p>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-card-title mb-md">Contrast</div>
+                    <p class="text-sm text-muted text-light">Dark surfaces (#0A0A0A to #1E1E1E) maximize chart
+                        legibility. White text on dark backgrounds ensures WCAG AA compliance across key text elements.
+                    </p>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-card-title mb-md">Progressive Disclosure</div>
+                    <p class="text-sm text-muted text-light">Three-level drill-down (Overview → Deep Dive → Rule Detail)
+                        exposes complexity only when the analyst needs it. WIP banners communicate honest completion
+                        state.</p>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- /sg-page -->
+
+</body>
+
+</html>

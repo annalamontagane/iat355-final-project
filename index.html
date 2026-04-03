@@ -1,18 +1,412 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IAT 355 Final Project</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAT 355 Final Project</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <main>
+    <div class="app-shell">
 
-  </main>
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="sidebar-brand-circles">
+                    <span class="brand-circle brand-circle--red"></span>
+                    <span class="brand-circle brand-circle--yellow"></span>
+                </div>
+                <div class="sidebar-brand-text">
+                    <span>FraudLens</span>
+                    Mastercard Analytics
+                </div>
+            </div>
 
-  <script src="main.js"></script>
+            <nav class="sidebar-nav">
+                <div class="nav-section-label">Dashboard</div>
+
+                <div class="nav-item active" data-panel="overview">
+                    <svg class="nav-item-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="1" y="1" width="6" height="6" rx="1" />
+                        <rect x="9" y="1" width="6" height="6" rx="1" />
+                        <rect x="1" y="9" width="6" height="6" rx="1" />
+                        <rect x="9" y="9" width="6" height="6" rx="1" />
+                    </svg>
+                    <span>Overview</span>
+                </div>
+
+                <div class="nav-item" data-panel="deepdive">
+                    <svg class="nav-item-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M2 4h12M2 8h8M2 12h5" />
+                    </svg>
+                    <span>Deep Dive</span>
+                </div>
+
+                <div class="nav-item" data-panel="ruledetail">
+                    <svg class="nav-item-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="8" cy="8" r="6" />
+                        <path d="M8 5v3l2 1.5" />
+                    </svg>
+                    <span>Rule Detail</span>
+                </div>
+
+                <div class="nav-section-label" style="margin-top: 16px;">Tools</div>
+
+                <a class="nav-item" href="visualizations.html">
+                    <svg class="nav-item-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M2 13l4-5 3 3 3-4 3 4" />
+                        <rect x="1" y="1" width="14" height="13" rx="1" />
+                    </svg>
+                    <span>Visualizations</span>
+                </a>
+
+                <a class="nav-item" href="style-guide.html">
+                    <svg class="nav-item-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="4" cy="8" r="2" />
+                        <path d="M8 4h5M8 8h5M8 12h5" />
+                    </svg>
+                    <span>Style Guide</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="user-avatar">BL</div>
+                    <div class="user-info">
+                        <div class="user-name">Blair L.</div>
+                        <div class="user-role">Sr. Fraud Analyst</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+                <div class="topbar-title" id="topbar-title">Fraud Operations — Overview</div>
+                <div class="topbar-actions">
+                    <span class="topbar-date" id="topbar-date">Loading...</span>
+                    <span class="topbar-date">Last 30 Days</span>
+                </div>
+            </header>
+
+            <!-- LEVEL 1: OVERVIEW (fully implemented) -->
+            <section class="page-panel active" id="panel-overview">
+
+                <div class="section-header">
+                    <div class="section-title">Fraud Detection Overview</div>
+                    <div class="section-subtitle">Rule performance, missed fraud trends, and false positive patterns
+                        across all regions</div>
+                    <div class="section-divider"></div>
+                </div>
+
+                <!-- KPI CARDS -->
+                <div class="kpi-grid">
+                    <div class="kpi-card kpi-card--alert">
+                        <div class="kpi-label">Total Missed Fraud</div>
+                        <div class="kpi-value kpi-value--alert" id="kpi-missed-fraud">—</div>
+                        <div class="kpi-delta kpi-delta--up">
+                            <span class="kpi-delta-arrow">↑</span>
+                            <span id="kpi-missed-delta">Loading…</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">False Positives</div>
+                        <div class="kpi-value kpi-value--warn" id="kpi-false-pos">—</div>
+                        <div class="kpi-delta kpi-delta--up">
+                            <span class="kpi-delta-arrow">↑</span>
+                            <span id="kpi-fp-delta">Loading…</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">Avg Risk Score</div>
+                        <div class="kpi-value" id="kpi-risk-score">—</div>
+                        <div class="kpi-delta">
+                            <span id="kpi-risk-delta">Loading…</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">Top Failure Type</div>
+                        <div class="kpi-value" style="font-size: var(--type-lg); line-height:1.2;"
+                            id="kpi-failure-type">—</div>
+                        <div class="kpi-delta">
+                            <span id="kpi-failure-delta">Loading…</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOP FAILURE TYPE BREAKDOWN -->
+                <div class="section-header mt-lg">
+                    <div class="flex-between mb-md">
+                        <div>
+                            <div class="text-bold text-sm">Failure Type Distribution</div>
+                            <div class="text-xs text-muted">Most common rule failure categories · all regions · last 30
+                                days</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="failure-grid" id="failure-type-grid">
+                    <!-- populated by main.js -->
+                </div>
+
+                <!-- CHARTS ROW 1: Trend + Rule Bubble -->
+                <div class="chart-grid chart-grid--2col" style="margin-bottom: var(--space-md);">
+
+                    <div class="chart-card">
+                        <div class="chart-card-header">
+                            <div>
+                                <div class="chart-card-title">Missed Fraud Trend</div>
+                                <div class="chart-card-desc">Daily missed fraud count by region over the last 30 days
+                                </div>
+                            </div>
+                            <div class="chart-card-badge">Time Series</div>
+                        </div>
+                        <div class="chart-container chart-container--tall" id="missed-fraud-chart">
+                            <!-- D3 renders here -->
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-card-header">
+                            <div>
+                                <div class="chart-card-title">Rule Performance</div>
+                                <div class="chart-card-desc">FN count vs. financial impact · colored by fix priority
+                                </div>
+                            </div>
+                            <div class="chart-card-badge">Scatter</div>
+                        </div>
+                        <div class="chart-container chart-container--tall" id="rule-perf-chart">
+                            <!-- D3 renders here -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- CHARTS ROW 2: False Positives by Category -->
+                <div class="chart-grid chart-grid--3col" style="margin-bottom: var(--space-md);">
+
+                    <div class="chart-card">
+                        <div class="chart-card-header">
+                            <div>
+                                <div class="chart-card-title">False Positives by Rule Category</div>
+                                <div class="chart-card-desc">Legitimate transactions incorrectly flagged, per category
+                                </div>
+                            </div>
+                            <div class="chart-card-badge">Bar</div>
+                        </div>
+                        <div class="chart-container chart-container--medium" id="fp-category-chart">
+                            <!-- D3 renders here -->
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-card-header">
+                            <div>
+                                <div class="chart-card-title">Failure Type Split</div>
+                                <div class="chart-card-desc">Distribution across 5 failure modes</div>
+                            </div>
+                            <div class="chart-card-badge">Donut</div>
+                        </div>
+                        <div class="chart-container chart-container--medium" id="failure-donut-chart">
+                            <!-- D3 renders here -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- FAILED RULES TABLE -->
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <div>
+                            <div class="chart-card-title">Failed Rules Breakdown</div>
+                            <div class="chart-card-desc">All 15 detection rules · click column headers to sort</div>
+                        </div>
+                        <div class="filter-bar" style="margin: 0;">
+                            <select class="filter-select" id="table-priority-filter">
+                                <option value="all">All Priorities</option>
+                                <option value="High">High</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Low">Low</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="data-table-wrap">
+                        <table class="data-table" id="rules-table">
+                            <thead>
+                                <tr>
+                                    <th data-col="rule_id">Rule ID <span class="sort-arrow">↕</span></th>
+                                    <th data-col="rule_name">Rule Name <span class="sort-arrow">↕</span></th>
+                                    <th data-col="category">Category <span class="sort-arrow">↕</span></th>
+                                    <th data-col="fn_count_caused">FN Count <span class="sort-arrow">↕</span></th>
+                                    <th data-col="failure_type">Failure Type <span class="sort-arrow">↕</span></th>
+                                    <th data-col="financial_impact">Financial Impact <span class="sort-arrow">↕</span>
+                                    </th>
+                                    <th data-col="fix_priority">Priority <span class="sort-arrow">↕</span></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="rules-table-body">
+                                <!-- populated by main.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </section><!-- /panel-overview -->
+
+            <!-- LEVEL 2: DEEP DIVE (partially implemented) -->
+            <section class="page-panel" id="panel-deepdive">
+
+                <div class="section-header">
+                    <div class="section-title">Deep Dive</div>
+                    <div class="section-subtitle">Detailed rule analysis with regional breakdown</div>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="wip-banner">
+                    <span class="wip-banner-icon">—</span>
+                    <span>This section is partially implemented. Additional filters and visualizations are planned for
+                        Milestone 2.</span>
+                </div>
+
+                <!-- Region Filter -->
+                <div class="flex-center gap-sm mb-lg">
+                    <span class="filter-label">Region</span>
+                    <div class="region-pills">
+                        <div class="region-pill active" data-region="all">All Regions</div>
+                        <div class="region-pill" data-region="North America">North America</div>
+                        <div class="region-pill" data-region="EMEA">EMEA</div>
+                        <div class="region-pill" data-region="APAC">APAC</div>
+                        <div class="region-pill" data-region="LATAM">LATAM</div>
+                    </div>
+                </div>
+
+                <!-- Simplified table -->
+                <div class="chart-card mb-lg">
+                    <div class="chart-card-header">
+                        <div>
+                            <div class="chart-card-title">Failed Rules — Simplified View</div>
+                            <div class="chart-card-desc">Sorted by financial impact · top 8 rules</div>
+                        </div>
+                    </div>
+                    <div class="data-table-wrap">
+                        <table class="data-table" id="deepdive-rules-table">
+                            <thead>
+                                <tr>
+                                    <th>Rule ID</th>
+                                    <th>Rule Name</th>
+                                    <th>FN Count</th>
+                                    <th>Financial Impact</th>
+                                    <th>Priority</th>
+                                </tr>
+                            </thead>
+                            <tbody id="deepdive-table-body">
+                                <!-- populated by main.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Risk score distribution container -->
+                <div class="chart-grid chart-grid--2col">
+                    <div class="chart-card">
+                        <div class="chart-card-header">
+                            <div>
+                                <div class="chart-card-title">Risk Score Distribution</div>
+                                <div class="chart-card-desc">By fraud outcome · highlights ambiguous grey zone (30–55)
+                                </div>
+                            </div>
+                            <div class="chart-card-badge">Box Plot</div>
+                        </div>
+                        <div class="chart-container chart-container--tall" id="risk-dist-chart">
+                            <!-- D3 renders here -->
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-card-header">
+                            <div>
+                                <div class="chart-card-title">Daily FP vs. Missed Fraud</div>
+                                <div class="chart-card-desc">Scatter — correlation: r ≈ 0.06 (weak positive)</div>
+                            </div>
+                            <div class="chart-card-badge">Scatter · Partial</div>
+                        </div>
+                        <div class="chart-container chart-container--tall">
+                            <div class="chart-placeholder">
+                                <div class="chart-placeholder-icon">◎</div>
+                                <div class="chart-placeholder-label">Scatter Plot</div>
+                                <div class="chart-placeholder-hint">Planned for Milestone 2 — regional drill-down
+                                    version</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section><!-- /panel-deepdive -->
+
+
+            <!-- LEVEL 3: RULE DETAIL (placeholder / minimal) -->
+            <section class="page-panel" id="panel-ruledetail">
+
+                <div class="section-header">
+                    <div class="section-title">Rule Detail</div>
+                    <div class="section-subtitle">Granular performance history and transaction-level drill-down · Coming
+                        in Milestone 2</div>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="wip-banner">
+                    <span class="wip-banner-icon">—</span>
+                    <span>This level is a placeholder. Full rule profiling and transaction-level drill-down are
+                        planned.</span>
+                </div>
+
+                <div class="placeholder-grid">
+                    <div class="placeholder-panel">
+                        <div class="placeholder-panel-title">Rule Performance History</div>
+                        <div class="placeholder-panel-desc">Trigger rate and accuracy over time for the selected rule.
+                            Will show degradation trends as fraud tactics evolve.</div>
+                    </div>
+                    <div class="placeholder-panel">
+                        <div class="placeholder-panel-title">Financial Impact Breakdown</div>
+                        <div class="placeholder-panel-desc">Estimated dollar losses attributed to this rule's failures,
+                            segmented by region and time period.</div>
+                    </div>
+                    <div class="placeholder-panel">
+                        <div class="placeholder-panel-title">Transaction Sample Feed</div>
+                        <div class="placeholder-panel-desc">Individual flagged transactions linked to this rule —
+                            amount, merchant, country, risk score, and fraud outcome.</div>
+                    </div>
+                </div>
+
+                <div class="chart-card"
+                    style="margin-top: var(--space-md); text-align: center; padding: var(--space-2xl);">
+                    <div style="display:none;"></div>
+                    <div class="text-bold text-md text-muted">Select a rule from the Overview table to load this panel.
+                    </div>
+                    <div class="text-xs text-muted mt-sm">Rule detail navigation will be wired in Milestone 2.</div>
+                </div>
+
+            </section><!-- /panel-ruledetail -->
+
+        </main>
+    </div>
+
+    <!-- Tooltip element -->
+    <div class="chart-tooltip" id="chart-tooltip">
+        <div class="tooltip-label" id="tt-label"></div>
+        <div class="tooltip-value" id="tt-value"></div>
+        <div class="tooltip-sub" id="tt-sub"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="main.js"></script>
 </body>
+
 </html>

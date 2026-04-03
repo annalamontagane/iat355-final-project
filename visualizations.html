@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualizations — FraudLens</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            background: var(--bg-base);
+        }
+
+        .viz-page {
+            max-width: 940px;
+            margin: 0 auto;
+            padding: var(--space-xl) var(--space-xl) var(--space-3xl);
+        }
+
+        .viz-page-header {
+            padding: var(--space-2xl) 0 var(--space-xl);
+            border-bottom: 1px solid var(--bg-border);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .viz-page-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .viz-nav-back {
+            font-size: var(--type-xs);
+            font-weight: 700;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color var(--transition-fast);
+        }
+
+        .viz-nav-back:hover {
+            color: var(--mc-orange);
+        }
+
+        .viz-eyebrow {
+            font-size: var(--type-xs);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--mc-orange);
+            margin-bottom: var(--space-sm);
+        }
+
+        .viz-page-title {
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: var(--space-md);
+        }
+
+        .viz-page-desc {
+            font-size: var(--type-base);
+            color: var(--text-secondary);
+            font-weight: 300;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .viz-study {
+            margin-bottom: var(--space-3xl);
+        }
+
+        .viz-study-meta {
+            margin-bottom: var(--space-lg);
+        }
+
+        .viz-study-num {
+            font-size: var(--type-xs);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--mc-orange);
+            margin-bottom: var(--space-xs);
+        }
+
+        .viz-study-title {
+            font-size: var(--type-xl);
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            line-height: 1.2;
+        }
+
+        .viz-study-desc {
+            font-size: var(--type-sm);
+            color: var(--text-secondary);
+            font-weight: 300;
+            max-width: 680px;
+            line-height: 1.6;
+        }
+
+        .viz-study-tags {
+            display: flex;
+            gap: var(--space-xs);
+            margin-top: var(--space-sm);
+            flex-wrap: wrap;
+        }
+
+        .viz-tag {
+            font-size: var(--type-xs);
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 20px;
+            border: 1px solid var(--bg-border);
+            color: var(--text-muted);
+        }
+
+        .viz-chart-card {
+            width: 100%;
+            background: var(--bg-card);
+            border: 1px solid var(--bg-border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg);
+            overflow: hidden;
+        }
+
+        .viz-chart-inner {
+            width: 100%;
+            background: var(--bg-elevated);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            min-height: 300px;
+        }
+
+        .viz-chart-inner svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .viz-insight {
+            margin-top: var(--space-md);
+            padding: var(--space-md) var(--space-lg);
+            background: rgba(255, 95, 0, 0.06);
+            border-left: 3px solid var(--mc-orange);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+
+        .viz-insight-label {
+            font-size: var(--type-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--mc-orange);
+            margin-bottom: 4px;
+        }
+
+        .viz-insight-text {
+            font-size: var(--type-sm);
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .viz-divider {
+            height: 1px;
+            background: var(--bg-border);
+            margin-bottom: var(--space-3xl);
+        }
+
+        @media (max-width: 700px) {
+            .viz-page {
+                padding: var(--space-md);
+            }
+
+            .viz-study-title {
+                font-size: var(--type-lg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="viz-page">
+        <header class="viz-page-header">
+            <nav class="viz-page-nav">
+                <a class="viz-nav-back" href="index.html">← Dashboard</a>
+                <span class="text-muted text-xs">·</span>
+                <a class="viz-nav-back" href="style-guide.html">Style Guide</a>
+            </nav>
+            <div class="viz-eyebrow">IAT 355 · Group MC · Assignment 6 — Data Exploration</div>
+            <h1 class="viz-page-title">Fraud Analytics<br>Visualizations</h1>
+            <p class="viz-page-desc">All eight exploratory visualizations from our data exploration phase. Each answers
+                a specific analytical question relevant to fraud detection rule performance and missed-fraud patterns.
+            </p>
+        </header>
+        <div class="viz-study">
+            <div class="viz-study-meta">
+                <div class="viz-study-num">Visualization 01</div>
+                <h2 class="viz-study-title">Rule Financial Impact vs. Missed Fraud Count</h2>
+                <p class="viz-study-desc">Scatter plot mapping each of the 15 fraud detection rules by false negative
+                    count (x-axis) versus estimated financial impact in thousands of dollars (y-axis), colored by fix
+                    priority. Reveals which rules have the highest combined severity.</p>
+                <div class="viz-study-tags"><span class="viz-tag">Scatter Plot</span><span class="viz-tag">Priority
+                        Color Encoding</span><span class="viz-tag">fraud_rules_rows.csv</span><span class="viz-tag">D3 ·
+                        scaleLinear · circles</span></div>
+            </div>
+            <div class="viz-chart-card">
+                <div class="viz-chart-inner" id="viz1-rule-scatter"></div>
+            </div>
+            <div class="viz-insight">
+                <div class="viz-insight-label">Key Insight</div>
+                <p class="viz-insight-text">VD-338b and CA-221 form the high-impact cluster in the upper-right quadrant.
+                    Most High priority rules map cleanly to high FN count and high financial loss, confirming that
+                    priority assignments reflect real severity. The two IP/Geo rules show low FN counts but medium
+                    priority, suggesting they affect a niche but important transaction segment.</p>
+            </div>
+        </div>
+
+        <div class="viz-divider"></div>
+
+        <div class="viz-study">
+            <div class="viz-study-meta">
+                <div class="viz-study-num">Visualization 02</div>
+                <h2 class="viz-study-title">Missed Fraud Trends by Region</h2>
+                <p class="viz-study-desc">Weekly rolling average of missed fraud counts over 180 days, broken down by
+                    four geographic regions (North America, EMEA, APAC, LATAM). North America consistently has the
+                    highest volume; all regions show periodic spikes modeled on seasonal fraud surges.</p>
+                <div class="viz-study-tags"><span class="viz-tag">Multi-line Time Series</span><span
+                        class="viz-tag">Regional Breakdown</span><span
+                        class="viz-tag">daily_aggregates_rows.csv</span><span class="viz-tag">D3 · scaleTime ·
+                        curveCatmullRom</span></div>
+            </div>
+            <div class="viz-chart-card">
+                <div class="viz-chart-inner" id="viz2-missed-trend"></div>
+            </div>
+            <div class="viz-insight">
+                <div class="viz-insight-label">Key Insight</div>
+                <p class="viz-insight-text">North America consistently logs the highest missed fraud counts, while LATAM
+                    remains the most stable. Periodic spikes across all regions validate the need for date-range
+                    filtering and region-level drill-down in the dashboard, aligning with the trend exploration task
+                    from our proposal.</p>
+            </div>
+        </div>
+
+        <div class="viz-divider"></div>
+
+        <div class="viz-study">
+            <div class="viz-study-meta">
+                <div class="viz-study-num">Visualization 03</div>
+                <h2 class="viz-study-title">Transaction Amount Distribution by Fraud Outcome</h2>
+                <p class="viz-study-desc">Overlapping histogram showing the distribution of transaction amounts for
+                    Legitimate, Confirmed Fraud, and Pending Review transactions. Reveals the dramatic difference in
+                    amount profiles between fraudulent and legitimate activity.</p>
+                <div class="viz-study-tags"><span class="viz-tag">Overlapping Histogram</span><span
+                        class="viz-tag">Outcome Comparison</span><span class="viz-tag">transactions_rows.csv</span><span
+                        class="viz-tag">D3 · d3.bin · scaleBand</span></div>
+            </div>
+            <div class="viz-chart-card">
+                <div class="viz-chart-inner" id="viz3-amount-hist"></div>
+            </div>
+            <div class="viz-insight">
+                <div class="viz-insight-label">Key Insight</div>
+                <p class="viz-insight-text">Legitimate transactions are heavily concentrated below $200. Fraudulent
+                    transactions spread broadly across $200–$3,000. This strong separation confirms that transaction
+                    amount is a discriminating feature, and validates including amount-based filtering when analysts
+                    drill down into flagged transactions.</p>
+            </div>
+        </div>
+
+        <div class="viz-divider"></div>
+
+        <div class="viz-study">
+            <div class="viz-study-meta">
+                <div class="viz-study-num">Visualization 04</div>
+                <h2 class="viz-study-title">False Positives by Rule Category</h2>
+                <p class="viz-study-desc">Horizontal bar chart showing the number of legitimate transactions incorrectly
+                    flagged by each rule category. Device-based rules generate the most false positives — consistent
+                    with Android device fingerprinting limitations noted in stakeholder interviews.</p>
+                <div class="viz-study-tags"><span class="viz-tag">Horizontal Bar</span><span class="viz-tag">Category
+                        Comparison</span><span class="viz-tag">transactions_rows.csv</span><span class="viz-tag">D3 ·
+                        scaleBand · scaleLinear</span></div>
+            </div>
+            <div class="viz-chart-card">
+                <div class="viz-chart-inner" id="viz4-fp-category"></div>
+            </div>
+            <div class="viz-insight">
+                <div class="viz-insight-label">Key Insight</div>
+                <p class="viz-insight-text">Device rules account for 212 false positives — nearly double the next
+                    category. This directly informs the dashboard design: analysts need to filter and sort rules by
+                    false positive impact to prioritize optimization. ML-Model rules also contribute notably, suggesting
+                    static thresholds need dynamic adjustment.</p>
+            </div>
+        </div>
+
+        <div class="viz-divider"></div>
+
+        <div class="viz-study">
+            <div class="viz-study-meta">
+                <div class="viz-study-num">Visualization 05</div>
+                <h2 class="viz-study-title">Risk Score Distribution by Fraud Outcome</h2>
+                <p class="viz-study-desc">Box plots comparing the distribution of calculated risk scores across
+                    Legitimate, Pending Review, and Confirmed Fraud transactions. Highlights the grey zone at 30–55
+                    where false positives and missed fraud most frequently occur.</p>
+                <div class="viz-study-tags"><span class="viz-tag">Box Plot</span><span class="viz-tag">Distribution
+                        Comparison</span><span class="viz-tag">transactions_rows.csv</span><span class="viz-tag">D3 ·
+                        d3.quantile · scaleBand</span></div>
+            </div>
+            <div class="viz-chart-card">
+                <div class="viz-chart-inner" id="viz5-risk-dist"></div>
+            </div>
+            <div class="viz-insight">
+                <div class="viz-insight-label">Key Insight</div>
+                <p class="viz-insight-text">Confirmed fraud centers around a risk score of ~72 while legitimate
+                    transactions center around ~25. The 30–55 grey zone is where most misclassifications occur. The
+                    dashboard should surface this ambiguous range for analyst review, since these are the transactions
+                    that most benefit from rule tuning.</p>
+            </div>
+        </div>
+
+        <div class="viz-divider"></div>
+
+        <div class="viz-study">
+            <div class="viz-study-meta">
+                <div class="viz-study-num">Visualization 06</div>
+                <h2 class="viz-study-title">Fraud Rate by Transaction Country</h2>
+                <p class="viz-study-desc">Horizontal bar chart showing the fraud rate (percentage of confirmed fraud
+                    transactions) for the top 10 countries by fraud rate, filtered to countries with at least 30
+                    transactions. The 15% threshold line marks elevated risk.</p>
+                <div class="viz-study-tags"><span class="viz-tag">Horizontal Bar</span><span class="viz-tag">Geographic
+                        Comparison</span><span class="viz-tag">transactions_rows.csv</span><span class="viz-tag">D3 ·
+                        scaleBand · % encoding</span></div>
+            </div>
+            <div class="viz-chart-card">
+                <div class="viz-chart-inner" id="viz6-geo-fraud"></div>
+            </div>
+            <div class="viz-insight">
+                <div class="viz-insight-label">Key Insight</div>
+                <p class="viz-insight-text">Russia, Nigeria, and India show the highest fraud rates (above 15%), while
+                    countries like the United States and Canada have lower rates despite much higher transaction
+                    volumes. This geographic disparity confirms the need for country-level filtering in the Deep Dive
+                    level of the dashboard.</p>
+            </div>
+        </div>
+
+        <div class="viz-divider"></div>
+
+        <div class="viz-study">
+            <div class="viz-study-meta">
+                <div class="viz-study-num">Visualization 07</div>
+                <h2 class="viz-study-title">Daily False Positives vs. Missed Fraud</h2>
+                <p class="viz-study-desc">Scatter plot showing the daily relationship between total false positives and
+                    total missed fraud across all regions, with a computed linear trend line and correlation
+                    coefficient. Tests whether high-FP days are also high-missed-fraud days.</p>
+                <div class="viz-study-tags"><span class="viz-tag">Scatter Plot</span><span class="viz-tag">Correlation
+                        Analysis</span><span class="viz-tag">daily_aggregates_rows.csv</span><span class="viz-tag">D3 ·
+                        linear regression · scaleLinear</span></div>
+            </div>
+            <div class="viz-chart-card">
+                <div class="viz-chart-inner" id="viz7-fp-vs-missed"></div>
+            </div>
+            <div class="viz-insight">
+                <div class="viz-insight-label">Key Insight</div>
+                <p class="viz-insight-text">The weak positive correlation (r ~0.06) shows that false positives and
+                    missed fraud are largely independent on a day-to-day basis. Both problems require separate
+                    analytical attention, which is why the dashboard presents them as distinct KPIs rather than a
+                    combined metric.</p>
+            </div>
+        </div>
+
+        <div class="viz-divider"></div>
+
+        <div class="viz-study">
+            <div class="viz-study-meta">
+                <div class="viz-study-num">Visualization 08</div>
+                <h2 class="viz-study-title">Distribution of Top Failure Types</h2>
+                <p class="viz-study-desc">Donut chart showing the relative frequency of the most common rule failure
+                    type recorded each day across all regions over the 180-day period. Reveals whether any single
+                    failure mode dominates analyst attention.</p>
+                <div class="viz-study-tags"><span class="viz-tag">Donut Chart</span><span class="viz-tag">Proportional
+                        Distribution</span><span class="viz-tag">daily_aggregates_rows.csv</span><span
+                        class="viz-tag">D3 · d3.pie · d3.arc</span></div>
+            </div>
+            <div class="viz-chart-card">
+                <div class="viz-chart-inner" id="viz8-failure-donut"></div>
+            </div>
+            <div class="viz-insight">
+                <div class="viz-insight-label">Key Insight</div>
+                <p class="viz-insight-text">The five failure types are distributed fairly evenly — no single mode
+                    dominates. This indicates analysts must be prepared to address a variety of rule issues
+                    simultaneously. This supports including a Failure Type column in the rules table, allowing analysts
+                    to sort and filter by failure type to identify systemic patterns.</p>
+            </div>
+        </div>
+
+    </div><!-- /viz-page -->
+
+    <div class="chart-tooltip" id="chart-tooltip">
+        <div class="tooltip-label" id="tt-label"></div>
+        <div class="tooltip-value" id="tt-value"></div>
+        <div class="tooltip-sub" id="tt-sub"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="visualizations.js"></script>
+</body>
+
+</html>
