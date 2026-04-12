@@ -75,8 +75,8 @@ async function loadData() {
         avg_risk_score: +d.avg_risk_score,
     }));
 
-    // Type-coerce transactions (sample — first 1000 for performance)
-    const transactions = transactionsRaw.slice(0, 1000).map(d => ({
+    // Type-coerce transactions
+    const transactions = transactionsRaw.map(d => ({
         ...d,
         amount: +d.amount,
         risk_score: +d.risk_score,
@@ -163,8 +163,33 @@ function renderFailureGrid(aggregates) {
 // RULES TABLE
 
 let rulesData = [];
+let transactionsData = [];
+let ruleRegionMap = {};
 let sortState = { col: 'financial_impact', dir: 'desc' };
 let filterPriority = 'all';
+let deepDiveSortState = { col: 'financial_impact', dir: 'desc' };
+let deepDiveActiveRegion = 'all';
+
+// Maps transaction_country values to their region label
+const COUNTRY_REGION = {
+    'USA': 'North America', 'Canada': 'North America', 'Mexico': 'North America',
+    'UK': 'EMEA', 'France': 'EMEA', 'Germany': 'EMEA', 'Russia': 'EMEA', 'Nigeria': 'EMEA',
+    'China': 'APAC', 'India': 'APAC', 'South Korea': 'APAC', 'Indonesia': 'APAC',
+    'Brazil': 'LATAM',
+};
+
+// Build a map: rule_id -> Set<region> derived from the transactions CSV
+function buildRuleRegionMap(transactions) {
+    const map = {};
+    transactions.forEach(t => {
+        if (!t.triggering_rule) return;
+        const region = COUNTRY_REGION[t.transaction_country];
+        if (!region) return;
+        if (!map[t.triggering_rule]) map[t.triggering_rule] = new Set();
+        map[t.triggering_rule].add(region);
+    });
+    return map;
+}
 
 function formatImpact(val) {
     if (val >= 1e6) return '$' + (val / 1e6).toFixed(2) + 'M';
@@ -245,17 +270,108 @@ function goToRuleDetail(ruleId) {
 
     const topTitle = document.getElementById('topbar-title');
     if (topTitle) topTitle.textContent = `Rule Detail — ${ruleId}`;
+
+    renderRuleDetail(ruleId);
 }
 
 
-// DEEP DIVE TABLE (top 8 by financial impact)
+// RULE DETAIL RENDERER (Level 3)
+
+function renderRuleDetail(ruleId) {
+    const rule = rulesData.find(r => r.rule_id === ruleId);
+
+    const emptyEl = document.getElementById('ruledetail-empty');
+    const contentEl = document.getElementById('ruledetail-content');
+    if (emptyEl) emptyEl.style.display = 'none';
+    if (contentEl) contentEl.style.display = 'block';
+
+    if (!rule) {
+        if (contentEl) contentEl.innerHTML = `<div class="chart-card" style="text-align:center;padding:var(--space-2xl);"><div class="text-muted">Rule ${ruleId} not found.</div></div>`;
+        return;
+    }
+
+    // Update page subtitle
+    const subtitleEl = document.getElementById('ruledetail-subtitle');
+    if (subtitleEl) subtitleEl.textContent = `${ruleId} — ${rule.rule_name}`;
+
+    // Profile card fields
+    document.getElementById('rd-rule-id').textContent = rule.rule_id;
+    document.getElementById('rd-rule-name').textContent = rule.rule_name;
+
+    const badge = document.getElementById('rd-priority-badge');
+    badge.textContent = rule.fix_priority;
+    badge.className = `priority-badge priority-badge--${rule.fix_priority.toLowerCase()}`;
+
+    document.getElementById('rd-category').textContent = rule.category;
+    document.getElementById('rd-failure-type').textContent = rule.failure_type;
+    document.getElementById('rd-last-edited').textContent = rule.last_edited || '—';
+
+    // Financial impact numbers
+    document.getElementById('rd-fn-count').textContent = (+rule.fn_count_caused).toLocaleString();
+    document.getElementById('rd-financial-impact').textContent = formatImpact(+rule.financial_impact);
+
+    // Transaction sample — up to 20 rows whose triggering_rule matches
+    const matching = transactionsData.filter(t => t.triggering_rule === ruleId).slice(0, 20);
+    document.getElementById('rd-tx-count').textContent = matching.length + ' transactions';
+
+    const txTbody = document.getElementById('ruledetail-tx-body');
+    if (!txTbody) return;
+
+    if (matching.length === 0) {
+        txTbody.innerHTML = `<tr><td colspan="8" class="text-muted" style="text-align:center;padding:var(--space-lg);">No transactions for this rule in the loaded sample.</td></tr>`;
+        return;
+    }
+
+    txTbody.innerHTML = matching.map(t => {
+        const outcomeKey = t.fraud_outcome === 'Confirmed Fraud' ? 'high' : t.fraud_outcome === 'Pending Review' ? 'medium' : 'low';
+        const riskClass = +t.risk_score >= 70 ? 'text-danger' : +t.risk_score >= 40 ? 'text-warn' : 'text-ok';
+        const dateStr = t.date ? String(t.date).slice(0, 10) : '—';
+        const amt = (+t.amount).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        return `
+    <tr>
+      <td><span class="rule-id" style="font-size:10px;">${t.transaction_id}</span></td>
+      <td class="text-muted text-sm">${dateStr}</td>
+      <td class="text-bold">$${amt}</td>
+      <td>${t.merchant_name || '—'}</td>
+      <td class="text-muted">${t.transaction_country || '—'}</td>
+      <td class="${riskClass} text-bold">${(+t.risk_score).toFixed(0)}</td>
+      <td><span class="priority-badge priority-badge--${outcomeKey}">${t.fraud_outcome || '—'}</span></td>
+      <td class="text-muted text-sm">${t.flagging_severity || '—'}</td>
+    </tr>`;
+    }).join('');
+}
+
+
+// DEEP DIVE TABLE — supports region filter + click-to-sort
 
 function renderDeepDiveTable(rules) {
     const tbody = document.getElementById('deepdive-table-body');
     if (!tbody) return;
 
-    const top8 = [...rules].sort((a, b) => b.financial_impact - a.financial_impact).slice(0, 8);
-    tbody.innerHTML = top8.map(r => `
+    // Region filter: a rule passes if any of its transactions come from the selected region
+    let filtered = rules;
+    if (deepDiveActiveRegion !== 'all') {
+        filtered = rules.filter(r => {
+            const regions = ruleRegionMap[r.rule_id];
+            return regions && regions.has(deepDiveActiveRegion);
+        });
+    }
+
+    // Sort
+    filtered = [...filtered].sort((a, b) => {
+        const av = a[deepDiveSortState.col], bv = b[deepDiveSortState.col];
+        const isNum = !isNaN(+av) && !isNaN(+bv);
+        const cmp = isNum ? (+av - +bv) : String(av).localeCompare(String(bv));
+        return deepDiveSortState.dir === 'asc' ? cmp : -cmp;
+    });
+
+    // Show top 9 for "All Regions", all matching rows for a specific region
+    const display = deepDiveActiveRegion === 'all' ? filtered.slice(0, 9) : filtered;
+
+    if (display.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" class="text-muted" style="text-align:center;padding:var(--space-lg);">No rules found for ${deepDiveActiveRegion}.</td></tr>`;
+    } else {
+        tbody.innerHTML = display.map(r => `
     <tr>
       <td><span class="rule-id">${r.rule_id}</span></td>
       <td class="text-bold">${r.rule_name}</td>
@@ -264,17 +380,60 @@ function renderDeepDiveTable(rules) {
       <td><span class="priority-badge priority-badge--${r.fix_priority.toLowerCase()}">${r.fix_priority}</span></td>
     </tr>
   `).join('');
+    }
+
+    // Sync sort arrows on deep dive table headers
+    document.querySelectorAll('#deepdive-rules-table th[data-col]').forEach(th => {
+        th.classList.toggle('sorted', th.dataset.col === deepDiveSortState.col);
+        const arrow = th.querySelector('.sort-arrow');
+        if (arrow) {
+            arrow.textContent = th.dataset.col === deepDiveSortState.col
+                ? (deepDiveSortState.dir === 'asc' ? '↑' : '↓')
+                : '↕';
+        }
+    });
 }
 
 
-// REGION PILLS (Deep Dive)
+// REGION PILLS (Deep Dive) — filters rules table + re-renders box plot
 
-function initRegionPills() {
+function initRegionPills(rules, transactions) {
     document.querySelectorAll('.region-pill').forEach(pill => {
         pill.addEventListener('click', () => {
             document.querySelectorAll('.region-pill').forEach(p => p.classList.remove('active'));
             pill.classList.add('active');
-            // Future: re-filter charts by region
+            deepDiveActiveRegion = pill.dataset.region;
+
+            // Re-filter deep dive rules table
+            renderDeepDiveTable(rules);
+
+            // Re-render box plot filtered to the selected region
+            const container = document.getElementById('risk-dist-chart');
+            if (container) {
+                container.innerHTML = '';
+                const filtered = deepDiveActiveRegion === 'all'
+                    ? transactions
+                    : transactions.filter(t => COUNTRY_REGION[t.transaction_country] === deepDiveActiveRegion);
+                drawRiskScoreBoxPlot(filtered);
+            }
+        });
+    });
+}
+
+
+// DEEP DIVE TABLE — click-to-sort on column headers
+
+function initDeepDiveTableSort(rules) {
+    document.querySelectorAll('#deepdive-rules-table th[data-col]').forEach(th => {
+        th.addEventListener('click', () => {
+            const col = th.dataset.col;
+            if (deepDiveSortState.col === col) {
+                deepDiveSortState.dir = deepDiveSortState.dir === 'asc' ? 'desc' : 'asc';
+            } else {
+                deepDiveSortState.col = col;
+                deepDiveSortState.dir = 'desc';
+            }
+            renderDeepDiveTable(rules);
         });
     });
 }
@@ -813,11 +972,12 @@ function drawAllCharts(aggregates, rules, transactions) {
 async function init() {
     initNav();
     initDateStamp();
-    initRegionPills();
 
     try {
         const { rules, aggregates, transactions } = await loadData();
         rulesData = rules;
+        transactionsData = transactions;
+        ruleRegionMap = buildRuleRegionMap(transactions);
 
         const kpis = computeKPIs(aggregates);
         renderKPIs(kpis);
@@ -825,6 +985,8 @@ async function init() {
         renderRulesTable(rules);
         renderDeepDiveTable(rules);
         initTableControls(rules);
+        initRegionPills(rules, transactions);
+        initDeepDiveTableSort(rules);
 
         // Two frames so layout is fully painted before measuring clientWidth
         requestAnimationFrame(() => requestAnimationFrame(() => {

@@ -299,11 +299,11 @@
                         <table class="data-table" id="deepdive-rules-table">
                             <thead>
                                 <tr>
-                                    <th>Rule ID</th>
-                                    <th>Rule Name</th>
-                                    <th>FN Count</th>
-                                    <th>Financial Impact</th>
-                                    <th>Priority</th>
+                                    <th data-col="rule_id">Rule ID <span class="sort-arrow">↕</span></th>
+                                    <th data-col="rule_name">Rule Name <span class="sort-arrow">↕</span></th>
+                                    <th data-col="fn_count_caused">FN Count <span class="sort-arrow">↕</span></th>
+                                    <th data-col="financial_impact">Financial Impact <span class="sort-arrow">↕</span></th>
+                                    <th data-col="fix_priority">Priority <span class="sort-arrow">↕</span></th>
                                 </tr>
                             </thead>
                             <tbody id="deepdive-table-body">
@@ -351,46 +351,97 @@
             </section><!-- /panel-deepdive -->
 
 
-            <!-- LEVEL 3: RULE DETAIL (placeholder / minimal) -->
+            <!-- LEVEL 3: RULE DETAIL -->
             <section class="page-panel" id="panel-ruledetail">
 
                 <div class="section-header">
                     <div class="section-title">Rule Detail</div>
-                    <div class="section-subtitle">Granular performance history and transaction-level drill-down · Coming
-                        in Milestone 2</div>
+                    <div class="section-subtitle" id="ruledetail-subtitle">Select a rule from the Overview table to view its profile.</div>
                     <div class="section-divider"></div>
                 </div>
 
-                <div class="wip-banner">
-                    <span class="wip-banner-icon">—</span>
-                    <span>This level is a placeholder. Full rule profiling and transaction-level drill-down are
-                        planned.</span>
+                <!-- Empty state -->
+                <div id="ruledetail-empty" class="chart-card" style="text-align:center;padding:var(--space-2xl);">
+                    <div class="text-bold text-md text-muted">No rule selected.</div>
+                    <div class="text-xs text-muted mt-sm">Click "Detail →" on any row in the Failed Rules Breakdown table on the Overview page.</div>
                 </div>
 
-                <div class="placeholder-grid">
-                    <div class="placeholder-panel">
-                        <div class="placeholder-panel-title">Rule Performance History</div>
-                        <div class="placeholder-panel-desc">Trigger rate and accuracy over time for the selected rule.
-                            Will show degradation trends as fraud tactics evolve.</div>
-                    </div>
-                    <div class="placeholder-panel">
-                        <div class="placeholder-panel-title">Financial Impact Breakdown</div>
-                        <div class="placeholder-panel-desc">Estimated dollar losses attributed to this rule's failures,
-                            segmented by region and time period.</div>
-                    </div>
-                    <div class="placeholder-panel">
-                        <div class="placeholder-panel-title">Transaction Sample Feed</div>
-                        <div class="placeholder-panel-desc">Individual flagged transactions linked to this rule —
-                            amount, merchant, country, risk score, and fraud outcome.</div>
-                    </div>
-                </div>
+                <!-- Rule content (hidden until a rule is selected) -->
+                <div id="ruledetail-content" style="display:none;">
 
-                <div class="chart-card"
-                    style="margin-top: var(--space-md); text-align: center; padding: var(--space-2xl);">
-                    <div style="display:none;"></div>
-                    <div class="text-bold text-md text-muted">Select a rule from the Overview table to load this panel.
+                    <!-- Profile Card -->
+                    <div class="rule-profile-card mb-lg">
+                        <div class="rule-profile-header">
+                            <div class="rule-profile-id-block">
+                                <span class="rule-id" id="rd-rule-id">—</span>
+                                <div class="rule-profile-name" id="rd-rule-name">—</div>
+                            </div>
+                            <span class="priority-badge priority-badge--high" id="rd-priority-badge">—</span>
+                        </div>
+                        <div class="rule-profile-grid">
+                            <div class="rule-profile-field">
+                                <div class="rule-profile-label">Category</div>
+                                <div class="rule-profile-value" id="rd-category">—</div>
+                            </div>
+                            <div class="rule-profile-field rule-profile-field--wide">
+                                <div class="rule-profile-label">Failure Type Description</div>
+                                <div class="rule-profile-value" id="rd-failure-type">—</div>
+                            </div>
+                            <div class="rule-profile-field">
+                                <div class="rule-profile-label">Last Edited</div>
+                                <div class="rule-profile-value" id="rd-last-edited">—</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="text-xs text-muted mt-sm">Rule detail navigation will be wired in Milestone 2.</div>
+
+                    <!-- Financial Impact -->
+                    <div class="chart-card mb-lg">
+                        <div class="chart-card-header">
+                            <div>
+                                <div class="chart-card-title">Financial Impact Breakdown</div>
+                                <div class="chart-card-desc">Estimated losses attributed to this rule's failures</div>
+                            </div>
+                        </div>
+                        <div class="rule-impact-grid">
+                            <div class="rule-impact-item">
+                                <div class="rule-impact-label">False Negatives (Missed Fraud)</div>
+                                <div class="rule-impact-value" id="rd-fn-count">—</div>
+                            </div>
+                            <div class="rule-impact-item">
+                                <div class="rule-impact-label">Estimated Financial Impact</div>
+                                <div class="rule-impact-value impact-value--high" id="rd-financial-impact">—</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transaction Sample Feed -->
+                    <div class="chart-card">
+                        <div class="chart-card-header">
+                            <div>
+                                <div class="chart-card-title">Transaction Sample Feed</div>
+                                <div class="chart-card-desc">Up to 20 transactions where the triggering rule matches this rule</div>
+                            </div>
+                            <div class="chart-card-badge" id="rd-tx-count">0 transactions</div>
+                        </div>
+                        <div class="data-table-wrap">
+                            <table class="data-table" id="ruledetail-tx-table">
+                                <thead>
+                                    <tr>
+                                        <th>Transaction ID</th>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Merchant</th>
+                                        <th>Country</th>
+                                        <th>Risk Score</th>
+                                        <th>Fraud Outcome</th>
+                                        <th>Severity</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ruledetail-tx-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
 
             </section><!-- /panel-ruledetail -->
