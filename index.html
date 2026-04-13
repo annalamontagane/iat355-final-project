@@ -269,11 +269,11 @@
                     <div class="section-divider"></div>
                 </div>
 
-                <div class="wip-banner">
+                <!-- <div class="wip-banner">
                     <span class="wip-banner-icon">—</span>
                     <span>This section is partially implemented. Additional filters and visualizations are planned for
                         Milestone 2.</span>
-                </div>
+                </div> -->
 
                 <!-- Region Filter -->
                 <div class="flex-center gap-sm mb-lg">
@@ -302,7 +302,8 @@
                                     <th data-col="rule_id">Rule ID <span class="sort-arrow">↕</span></th>
                                     <th data-col="rule_name">Rule Name <span class="sort-arrow">↕</span></th>
                                     <th data-col="fn_count_caused">FN Count <span class="sort-arrow">↕</span></th>
-                                    <th data-col="financial_impact">Financial Impact <span class="sort-arrow">↕</span></th>
+                                    <th data-col="financial_impact">Financial Impact <span class="sort-arrow">↕</span>
+                                    </th>
                                     <th data-col="fix_priority">Priority <span class="sort-arrow">↕</span></th>
                                 </tr>
                             </thead>
@@ -348,7 +349,7 @@
                     </div>
                 </div>
 
-            </section><!-- /panel-deepdive -->
+            </section>
 
 
             <!-- LEVEL 3: RULE DETAIL -->
@@ -356,14 +357,16 @@
 
                 <div class="section-header">
                     <div class="section-title">Rule Detail</div>
-                    <div class="section-subtitle" id="ruledetail-subtitle">Select a rule from the Overview table to view its profile.</div>
+                    <div class="section-subtitle" id="ruledetail-subtitle">Select a rule from the Overview table to view
+                        its profile.</div>
                     <div class="section-divider"></div>
                 </div>
 
                 <!-- Empty state -->
                 <div id="ruledetail-empty" class="chart-card" style="text-align:center;padding:var(--space-2xl);">
                     <div class="text-bold text-md text-muted">No rule selected.</div>
-                    <div class="text-xs text-muted mt-sm">Click "Detail →" on any row in the Failed Rules Breakdown table on the Overview page.</div>
+                    <div class="text-xs text-muted mt-sm">Click "Detail →" on any row in the Failed Rules Breakdown
+                        table on the Overview page.</div>
                 </div>
 
                 <!-- Rule content (hidden until a rule is selected) -->
@@ -419,7 +422,8 @@
                         <div class="chart-card-header">
                             <div>
                                 <div class="chart-card-title">Transaction Sample Feed</div>
-                                <div class="chart-card-desc">Up to 20 transactions where the triggering rule matches this rule</div>
+                                <div class="chart-card-desc">Up to 20 transactions where the triggering rule matches
+                                    this rule</div>
                             </div>
                             <div class="chart-card-badge" id="rd-tx-count">0 transactions</div>
                         </div>
@@ -444,7 +448,7 @@
 
                 </div>
 
-            </section><!-- /panel-ruledetail -->
+            </section>
 
         </main>
     </div>
